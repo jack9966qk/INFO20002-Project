@@ -23,5 +23,5 @@ User customisable headers for rows and columns. Flight numbers displayed in the 
 Example: Rows = Years, Columns = Destinations
 
 ##Part 2 - Open Ended Task
-[Hypothesis](Hypothesis and Research Questions.docx)
+[Hypothesis](Hypothesis.md)
 Could be done with Python/Google Spreadsheets/other tools.
