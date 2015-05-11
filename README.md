@@ -8,5 +8,20 @@ Dataset is collected from [insert here] as excel files, containing data of fligh
 
 ##Todo
 - [x] Collect Data
-- [ ] Pivot Table (eg: Date vs. Location)
-- [ ] Open Ended Task (TBA)
+- [ ] Data Preprocessing
+	- [x] Convert to CSV for Python
+	- [ ] Other stuff...
+- [ ] Analysis of Data
+- [ ] Webpage Presentation
+	- [ ] Index Page
+	- [ ] Pivot Table Page
+	- [ ] Hypothesis and Analysis Page
+
+##Part 1 - Pivot Table
+User customisable headers for rows and columns. Flight numbers displayed in the cells.
+(Probably needs Javascript to achieve...)
+Example: Rows = Years, Columns = Destinations
+
+##Part 2 - Open Ended Task
+[Hypothesis](Hypothesis and Research Questions.docx)
+Could be done with Python/Google Spreadsheets/other tools.
