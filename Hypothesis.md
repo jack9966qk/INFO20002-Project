@@ -28,11 +28,15 @@
 ##Set column B IN/OUT to use both I and O
 - How are the flights related to seasons/holidays?
 
-*May need to calculate correlation through Python*
+*May need to calculate correlation through Python.*
 
 - What month has typically the most amount of travellers? And which has the least?
 
 ##Using the Departures and Arrivals CSV
 - How has arrivals and departures changed over the years? What could be a reason for such changes?
 
-*Display this on a line graph with one line representing Departures and one representing Arrivals. Then create a separate graph of the Australian dollar. You can then summarize that more Australians travel overseas when AUS dollar is stronger*
+*Display this on a line graph with one line representing Departures and one representing Arrivals. Then create a separate graph of the Australian dollar. You can then summarize that more Australians travel overseas when AUS dollar is stronger.*##Combine the data from Inbound and Outbound
+
+- What is the ratio between inbound flights and outbound flights? How is it realted to time, airlines, and locations?
+
+*May use area charrts.*
