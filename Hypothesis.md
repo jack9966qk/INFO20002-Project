@@ -54,5 +54,3 @@
 - What is the ratio between inbound flights and outbound flights? How is it realted to time, airlines, and locations?
 
 *May use area charrts.*
-
--Made by...
