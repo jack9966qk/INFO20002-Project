@@ -1,0 +1,20 @@
+table, tr, td {
+	border-collapse: collapse;
+}
+
+table tr:nth-child(even) {
+	background-color: #C6EBF1;
+}
+
+table tr:nth-child(odd) {
+	background-color: #5375A2;
+}
+
+tr {
+	text-align: center;
+}
+
+caption {
+	font-family: sans-serif;
+	font-size: 200%;
+}
