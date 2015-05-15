@@ -1,14 +1,33 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300italic);
 
 p {
-	font-family: "Source Sans Pro";
+	margin-left: 30px;
+	margin-right: 30px;
 	font-weight: 400;
 	font-size: 120%;
 	margin: 10px 10px 10px 10px;
 }
 
+h1 {
+	margin-left: 60px;
+	margin-right: 60px;
+	font-family: "Source Sans Pro";
+	font-weight: 400;
+	font-style: normal;
+	text-align: center;
+	font-size: 300%;
+}
 
 h2 {
+	text-align: center;
+	font-family: "Source Sans Pro";
+	font-weight: 300;
+	margin: 0px;
+	font-size: 150%;
+}
+
+h3 {
+	margin-left: 60px;
+	margin-right: 60px;
 	font-family: "Source Sans Pro";
 	font-weight: 300;
 	font-style: italic;

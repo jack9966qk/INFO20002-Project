@@ -1,6 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Quantico:700,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic);
+
 
 body {
+	margin: 0px;
+	padding: 0px;
+	font-size: 16px;
 	background-color: #F1EEEA
 }
 
@@ -16,22 +21,35 @@ h2.subtitle {
 	font-weight: 700;
 	text-align: center;
 	margin-top: 0px;
-	margin-bottom: 40px;
+	margin-bottom: 10px;
 }
 
 div.index-text {
-	width: 500px;
-    margin: 20px;
+	width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
     padding: 20px;
 }
 
+div.button {
+	text-align: center;
+	margin-bottom: 40px;	
+}
+
 p {
-	font-family: sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 1.1em;
 }
 
 a.button {
+	font-family: "Source Sans Pro", sans-serif;
+	font-weight: lighter;
 	font-size: 150%;
 	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+	margin-bottom: 10px;
 	border: 2px solid;
 	padding: 10px;
 	color: white;
@@ -50,8 +68,12 @@ a.button:link {
 }
 
 a.tabButton {
+	font-family: sans-serif;
 	border: 1px solid;
 	padding: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 4px;
 	border-radius: 2px 2px 2px 2px;
 }
 
@@ -61,8 +83,8 @@ a.tabButton:link {
 
 ul.tabBar {
 	background-color: #CCCCCC;
-	margin: 0px 0px 0px 0px;
-	padding: 10px;
+	margin: 0px;
+	padding: 15px;
 	list-style-type: none;
 }
 
