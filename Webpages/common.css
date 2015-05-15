@@ -1,13 +1,28 @@
+@import url(http://fonts.googleapis.com/css?family=Quantico:700,400);
+
 body {
 	background-color: #F1EEEA
 }
 
 h1.title {
-	font-family: sans-serif;
+	font-family: 'Quantico', sans-serif;
+	text-align: center;
+	font-size: 300%;
+	margin-bottom: 10px;
 }
 
 h2.subtitle {
-	font-family: sans-serif;
+	font-family: 'Quantico', sans-serif;
+	font-weight: 400;
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 40px;
+}
+
+div.index-text {
+	width: 500px;
+    margin: 20px;
+    padding: 20px;
 }
 
 p {
@@ -15,7 +30,19 @@ p {
 }
 
 a.button {
+	font-size: 150%;
+	text-align: center;
+	border: 2px solid;
+	padding: 10px;
+	color: white;
+	background-color: #000066;
+	border-color: #000066;
+	border-radius: 4px 4px 4px 4px;
+}
 
+a.button:hover {
+	background-color: #6666A3;
+	border-color: #6666A3;
 }
 
 a.button:link {
@@ -23,9 +50,18 @@ a.button:link {
 }
 
 a.tabButton {
-
+	border: 1px solid;
+	padding: 4px;
 }
 
 a.tabButton:link {
 	text-decoration:none;
+}
+
+ul.tabBar {
+	list-style-type:none;
+}
+
+ul.tabBar li {
+	display: inline;
 }
