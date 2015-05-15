@@ -13,7 +13,7 @@ h1.title {
 
 h2.subtitle {
 	font-family: 'Quantico', sans-serif;
-	font-weight: 400;
+	font-weight: 700;
 	text-align: center;
 	margin-top: 0px;
 	margin-bottom: 40px;
@@ -46,7 +46,7 @@ a.button:hover {
 }
 
 a.button:link {
-	text-decoration:none;
+	text-decoration: none;
 }
 
 a.tabButton {
@@ -55,11 +55,11 @@ a.tabButton {
 }
 
 a.tabButton:link {
-	text-decoration:none;
+	text-decoration: none;
 }
 
 ul.tabBar {
-	list-style-type:none;
+	list-style-type: none;
 }
 
 ul.tabBar li {
