@@ -52,6 +52,7 @@ a.button:link {
 a.tabButton {
 	border: 1px solid;
 	padding: 4px;
+	border-radius: 2px 2px 2px 2px;
 }
 
 a.tabButton:link {
@@ -59,9 +60,17 @@ a.tabButton:link {
 }
 
 ul.tabBar {
+	background-color: #CCCCCC;
+	margin: 0px 0px 0px 0px;
+	padding: 10px;
 	list-style-type: none;
 }
 
 ul.tabBar li {
 	display: inline;
+}
+
+nav {
+	margin: 0px;
+	padding: 0px;
 }
