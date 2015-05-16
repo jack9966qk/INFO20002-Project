@@ -1,6 +1,7 @@
 from csv import DictReader
 from collections import defaultdict
 from lxml import etree
+from cgi import FieldStorage
 
 
 def generate_table(csvFile, rowHeader, colHeader):
@@ -14,6 +15,12 @@ def generate_table(csvFile, rowHeader, colHeader):
     returns a HTML string representing the whole pivot table
     """
 
+    monthDict = {   
+                "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4,
+                "May": 5, "Jun": 6, "Jul": 7, "Aug": 8,
+                "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12
+                }
+
     reader = DictReader(csvFile)
     keys = reader.fieldnames
 
@@ -23,7 +30,7 @@ def generate_table(csvFile, rowHeader, colHeader):
     colKeySet = set()    
 
     # check if the input is valid
-    if (rowHeader not in keys + ["month", "year"]) or (rowHeader not in keys + ["month", "year"]):
+    if (rowHeader not in keys + ["Month", "Year"]) or (rowHeader not in keys + ["Month", "Year"]):
         return ""
 
 
@@ -31,16 +38,16 @@ def generate_table(csvFile, rowHeader, colHeader):
     # get the number of flights
     for line in reader:
         # determine key used for rows and columns
-        if rowHeader == "month":
+        if rowHeader == "Month":
             rowKey = line["Month"][:3]
-        elif rowHeader == "year":
+        elif rowHeader == "Year":
             rowKey = "20" + line["Month"][4:]
         else:
             rowKey = line[rowHeader]
 
-        if colHeader == "month":
+        if colHeader == "Month":
             colKey = line["Month"][:3]
-        elif colHeader == "year":
+        elif colHeader == "Year":
             colKey = "20" + line["Month"][4:]
         else:
             colKey = line[colHeader]
@@ -53,8 +60,17 @@ def generate_table(csvFile, rowHeader, colHeader):
 
     # create the HTML
     table = etree.Element("table")
-    rows = sorted(data.keys())
-    cols = sorted(list(colKeySet))
+
+    # sort the headers
+    if rowHeader == "Month":
+        rows = sorted(data.keys(), key = lambda x: monthDict[x])
+    else:
+        rows = sorted(data.keys())
+
+    if colHeader == "Month":
+        cols = sorted(list(colKeySet), key = lambda x: monthDict[x])
+    else: 
+        cols = sorted(list(colKeySet))
 
     # for the first row containing headers:
     headerRow = etree.Element("tr")
@@ -77,3 +93,16 @@ def generate_table(csvFile, rowHeader, colHeader):
         table.append(tr)
 
     return etree.tostring(table)​
+
+
+
+form = FieldStorage()
+
+row = form["row"].value
+col = form["col"].value
+f = open("../RawData/Data.csv")
+
+print "Content-Type: text/html"
+print          
+
+print(generate_table(f, row, col))

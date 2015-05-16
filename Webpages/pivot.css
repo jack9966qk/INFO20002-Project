@@ -1,9 +1,11 @@
-p {
-	margin-top: 90px;
-	text-align: center;
-	width: auto;
+div:selectors {
+	width: 400px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+p {
+	text-align: center;
 }
 
 table, tr, td {

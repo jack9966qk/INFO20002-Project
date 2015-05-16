@@ -6,6 +6,13 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="common.css">
 	<link rel="stylesheet" href="pivot.css">
+
+	<!--Scripts for jQuery and Highcharts-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+
+	<!--Scripts for generating the interactive chart-->
+	<script src="pivot.js"></script>
 </head>
 
 <body>
@@ -15,10 +22,50 @@
 	<li><a href="hypothesis.html" class="tabButton">Hypothesis and Analysis</a></li>
 </ul>
 </nav>
-<p>Make your selection for rows and columns below:</p>
+
+<h1>Pivot Table</h1>
+<h2>Make your selection for rows and columns below:</h2>
+
+<form id="tableForm" action="pivot.py" method="GET">
+	<div class="selectors">
+		<h3>Rows</h3>
+		<p class="selector"><input type="radio" name="row" value="Month" checked>Month</p>
+		<p class="selector"><input type="radio" name="row" value="Year">Year</p>
+		<p class="selector"><input type="radio" name="row" value="Australian">Australian</p>
+		<p class="selector"><input type="radio" name="row" value="International">International</p>
+		<p class="selector"><input type="radio" name="row" value="Airline">Airline</p>
+		<p class="selector"><input type="radio" name="row" value="Port Country">Port Country</p>
+		<p class="selector"><input type="radio" name="row" value="Port Region">Port Region</p>
+		<p class="selector"><input type="radio" name="row" value="Service Country">Service Country</p>
+		<p class="selector"><input type="radio" name="row" value="Service Region">Service Region</p>
+	</div>
+
+	<div class="selectors">
+		<h3>Columns</h3>
+		<p class="selector"><input type="radio" name="col" value="Month">Month</p>
+		<p class="selector"><input type="radio" name="col" value="Year" checked>Year</p>
+		<p class="selector"><input type="radio" name="col" value="Australian">Australian</p>
+		<p class="selector"><input type="radio" name="col" value="International">International</p>
+		<p class="selector"><input type="radio" name="col" value="Airline">Airline</p>
+		<p class="selector"><input type="radio" name="col" value="Port Country">Port Country</p>
+		<p class="selector"><input type="radio" name="col" value="Port Region">Port Region</p>
+		<p class="selector"><input type="radio" name="col" value="Service Country">Service Country</p>
+		<p class="selector"><input type="radio" name="col" value="Service Region">Service Region</p>
+	</div>
+
+</form>
+
+<div class="button">
+<button>Generate Table</button>
+</div>
+
 <!--Insert the Pivot Table here...-->
 
-<table><tr><td/><th>Apr</th><th>Aug</th><th>Dec</th><th>Feb</th><th>Jan</th><th>Jul</th><th>Jun</th><th>Mar</th><th>May</th><th>Nov</th><th>Oct</th><th>Sep</th></tr><tr><th>2003</th><td>0</td><td>0</td><td>575</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>585</td></tr><tr><th>2004</th><td>0</td><td>0</td><td>622</td><td>0</td><td>0</td><td>0</td><td>565</td><td>576</td><td>0</td><td>0</td><td>0</td><td>608</td></tr><tr><th>2005</th><td>0</td><td>0</td><td>608</td><td>0</td><td>0</td><td>0</td><td>609</td><td>593</td><td>0</td><td>0</td><td>0</td><td>607</td></tr><tr><th>2006</th><td>559</td><td>568</td><td>566</td><td>579</td><td>626</td><td>585</td><td>600</td><td>591</td><td>540</td><td>547</td><td>539</td><td>517</td></tr><tr><th>2007</th><td>514</td><td>547</td><td>561</td><td>530</td><td>547</td><td>532</td><td>534</td><td>549</td><td>554</td><td>545</td><td>562</td><td>540</td></tr><tr><th>2008</th><td>546</td><td>548</td><td>576</td><td>545</td><td>579</td><td>587</td><td>578</td><td>558</td><td>554</td><td>551</td><td>539</td><td>541</td></tr><tr><th>2009</th><td>556</td><td>550</td><td>595</td><td>533</td><td>558</td><td>561</td><td>575</td><td>527</td><td>543</td><td>558</td><td>563</td><td>622</td></tr><tr><th>2010</th><td>600</td><td>593</td><td>616</td><td>597</td><td>582</td><td>607</td><td>596</td><td>578</td><td>600</td><td>564</td><td>564</td><td>607</td></tr><tr><th>2011</th><td>589</td><td>587</td><td>588</td><td>597</td><td>605</td><td>603</td><td>603</td><td>598</td><td>611</td><td>568</td><td>593</td><td>586</td></tr><tr><th>2012</th><td>572</td><td>567</td><td>576</td><td>580</td><td>580</td><td>572</td><td>542</td><td>568</td><td>541</td><td>536</td><td>558</td><td>561</td></tr><tr><th>2013</th><td>545</td><td>559</td><td>565</td><td>555</td><td>576</td><td>563</td><td>580</td><td>578</td><td>558</td><td>562</td><td>573</td><td>578</td></tr><tr><th>2014</th><td>544</td><td>539</td><td>536</td><td>556</td><td>565</td><td>547</td><td>543</td><td>560</td><td>540</td><td>514</td><td>537</td><td>536</td></tr><tr><th>2015</th><td>0</td><td>0</td><td>0</td><td>531</td><td>533</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></table>
+<table id="pivotTable"></table>
+
+
+<div id="container"></div>
+
 
 </body>
 
