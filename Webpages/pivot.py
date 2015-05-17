@@ -2,9 +2,9 @@ from csv import DictReader
 from collections import defaultdict
 from lxml import etree
 from cgi import FieldStorage
+import json
 
-
-def generate_table(csvFile, rowHeader, colHeader):
+def parse_data(csvFile, rowHeader, colHeader):
     """
     csvFile - a csv file returned by the open() function
     rowHeader - a string specifying the rows
@@ -12,7 +12,7 @@ def generate_table(csvFile, rowHeader, colHeader):
 
     headers must be the exact string in the headers of the csv file, except "month" and "year"
 
-    returns a HTML string representing the whole pivot table
+    returns (sorted row headers, sorted column headers, 2d dictionary data)
     """
 
     monthDict = {   
@@ -58,8 +58,6 @@ def generate_table(csvFile, rowHeader, colHeader):
         # count 1 for the coresponding "cell"
         data[rowKey][colKey] += 1
 
-    # create the HTML
-    table = etree.Element("table")
 
     # sort the headers
     if rowHeader == "Month":
@@ -71,6 +69,24 @@ def generate_table(csvFile, rowHeader, colHeader):
         cols = sorted(list(colKeySet), key = lambda x: monthDict[x])
     else: 
         cols = sorted(list(colKeySet))
+
+    return (rows, cols, data)
+
+
+
+def generate_table(rows, cols, data):
+    """
+    rows - the sorted row headers
+    cols - the sorted column headers
+    data - a 2d dictionary containing all the data to be displayed
+    
+    returns a HTML string representing the whole pivot table
+    """
+
+    # create the HTML
+    table = etree.Element("table")
+    table.set("id", "pivotTable")
+
 
     # for the first row containing headers:
     headerRow = etree.Element("tr")
@@ -92,17 +108,51 @@ def generate_table(csvFile, rowHeader, colHeader):
             tr.append(td)
         table.append(tr)
 
-    return etree.tostring(table)​
+    return etree.tostring(table)
 
+def generate_series(rows, cols, data):
+    """
+    rows - the sorted row headers
+    cols - the sorted column headers
+    data - a 2d dictionary containing all the data to be displayed
 
+    returns the data array for Highcharts
+    """
+    series = []
+
+    for i in range(len(rows)):
+        for j in range(len(cols)):
+            series.append([ i, j, data[rows[i]][cols[j]] ])
+
+    return series
 
 form = FieldStorage()
 
 row = form["row"].value
 col = form["col"].value
-f = open("../RawData/Data.csv")
+f = open("Data.csv")
 
-print "Content-Type: text/html"
-print          
+rows, cols, data = parse_data(f, row, col)
 
-print(generate_table(f, row, col))
+
+#print "Content-Type: text/html"
+#print          
+
+#print generate_table(rows, cols, data)
+
+options = { "chart": {"type": "heatmap"},
+            "title": {"text": row + " vs. " + col},
+            "xAxis": {"categories": rows},
+            "yAxis": {"categories": cols}
+        }
+
+s = {}
+s["name"] = "Number of Flights"
+s["borderWidth"] = 1
+s["data"] = generate_series(rows, cols, data)
+
+options["series"] = [s]
+
+print "Content-Type: text/json"
+print  
+print json.dumps(options)

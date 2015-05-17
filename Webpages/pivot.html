@@ -2,24 +2,26 @@
 <html lang="en-US">
 
 <head>
-	<title>Pivot Table</title>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="common.css">
-	<link rel="stylesheet" href="pivot.css">
+    <title>Pivot Table</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="pivot.css">
 
-	<!--Scripts for jQuery and Highcharts-->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="http://code.highcharts.com/highcharts.js"></script>
+    <!--Scripts for jQuery and Highcharts-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/data.js"></script>
+    <script src="http://code.highcharts.com/modules/heatmap.js"></script>
 
-	<!--Scripts for generating the interactive chart-->
-	<script src="pivot.js"></script>
+    <!--Scripts for generating the interactive chart-->
+    <script src="pivot.js"></script>
 </head>
 
 <body>
 <nav>
 <ul class="tabBar">
-	<li><a href="index.html" class="tabButton">Home</a></li>
-	<li><a href="hypothesis.html" class="tabButton">Hypothesis and Analysis</a></li>
+    <li><a href="index.html" class="tabButton">Home</a></li>
+    <li><a href="hypothesis.html" class="tabButton">Hypothesis and Analysis</a></li>
 </ul>
 </nav>
 
@@ -27,31 +29,31 @@
 <h2>Make your selection for rows and columns below:</h2>
 
 <form id="tableForm" action="pivot.py" method="GET">
-	<div class="selectors">
-		<h3>Rows</h3>
-		<p class="selector"><input type="radio" name="row" value="Month" checked>Month</p>
-		<p class="selector"><input type="radio" name="row" value="Year">Year</p>
-		<p class="selector"><input type="radio" name="row" value="Australian">Australian</p>
-		<p class="selector"><input type="radio" name="row" value="International">International</p>
-		<p class="selector"><input type="radio" name="row" value="Airline">Airline</p>
-		<p class="selector"><input type="radio" name="row" value="Port Country">Port Country</p>
-		<p class="selector"><input type="radio" name="row" value="Port Region">Port Region</p>
-		<p class="selector"><input type="radio" name="row" value="Service Country">Service Country</p>
-		<p class="selector"><input type="radio" name="row" value="Service Region">Service Region</p>
-	</div>
+    <div class="selectors">
+        <h3>Rows</h3>
+        <p class="selector"><input type="radio" name="row" value="Month" checked>Month</p>
+        <p class="selector"><input type="radio" name="row" value="Year">Year</p>
+        <p class="selector"><input type="radio" name="row" value="Australian">Australian</p>
+        <p class="selector"><input type="radio" name="row" value="International">International</p>
+        <p class="selector"><input type="radio" name="row" value="Airline">Airline</p>
+        <p class="selector"><input type="radio" name="row" value="Port Country">Port Country</p>
+        <p class="selector"><input type="radio" name="row" value="Port Region">Port Region</p>
+        <p class="selector"><input type="radio" name="row" value="Service Country">Service Country</p>
+        <p class="selector"><input type="radio" name="row" value="Service Region">Service Region</p>
+    </div>
 
-	<div class="selectors">
-		<h3>Columns</h3>
-		<p class="selector"><input type="radio" name="col" value="Month">Month</p>
-		<p class="selector"><input type="radio" name="col" value="Year" checked>Year</p>
-		<p class="selector"><input type="radio" name="col" value="Australian">Australian</p>
-		<p class="selector"><input type="radio" name="col" value="International">International</p>
-		<p class="selector"><input type="radio" name="col" value="Airline">Airline</p>
-		<p class="selector"><input type="radio" name="col" value="Port Country">Port Country</p>
-		<p class="selector"><input type="radio" name="col" value="Port Region">Port Region</p>
-		<p class="selector"><input type="radio" name="col" value="Service Country">Service Country</p>
-		<p class="selector"><input type="radio" name="col" value="Service Region">Service Region</p>
-	</div>
+    <div class="selectors">
+        <h3>Columns</h3>
+        <p class="selector"><input type="radio" name="col" value="Month">Month</p>
+        <p class="selector"><input type="radio" name="col" value="Year" checked>Year</p>
+        <p class="selector"><input type="radio" name="col" value="Australian">Australian</p>
+        <p class="selector"><input type="radio" name="col" value="International">International</p>
+        <p class="selector"><input type="radio" name="col" value="Airline">Airline</p>
+        <p class="selector"><input type="radio" name="col" value="Port Country">Port Country</p>
+        <p class="selector"><input type="radio" name="col" value="Port Region">Port Region</p>
+        <p class="selector"><input type="radio" name="col" value="Service Country">Service Country</p>
+        <p class="selector"><input type="radio" name="col" value="Service Region">Service Region</p>
+    </div>
 
 </form>
 
@@ -60,8 +62,6 @@
 </div>
 
 <!--Insert the Pivot Table here...-->
-
-<table id="pivotTable"></table>
 
 
 <div id="container"></div>
