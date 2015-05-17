@@ -1,9 +1,3 @@
-div:selectors {
-	width: 400px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 p {
 	text-align: center;
 }
@@ -20,6 +14,30 @@ table {
 th, td {
 	padding: 10px;
 	text-align: center;
+}
+
+.draggable, .droppable {
+	display: table-cell;
+	background-color: blue;
+	color: white;
+	font-family: sans-serif;
+	border-radius: 5px;
+	padding: 15px;
+	margin: 5px;
+}
+
+.droppable {
+	background-color: aqua;
+	padding: 50px;
+	margin: 5px;
+}
+
+.dropped {
+	background-color: yellow;
+}
+
+.dragging {
+	background-color: red;
 }
 
 caption {

@@ -39,16 +39,16 @@ def parse_data(csvFile, rowHeader, colHeader):
     for line in reader:
         # determine key used for rows and columns
         if rowHeader == "Month":
-            rowKey = line["Month"][:3]
+            rowKey = line["Month"].split("-")[0]
         elif rowHeader == "Year":
-            rowKey = "20" + line["Month"][4:]
+            rowKey = "20" + line["Month"].split("-")[-1]
         else:
             rowKey = line[rowHeader]
 
         if colHeader == "Month":
-            colKey = line["Month"][:3]
+            colKey = line["Month"].split("-")[0]
         elif colHeader == "Year":
-            colKey = "20" + line["Month"][4:]
+            colKey = "20" + line["Month"].split("-")[-1]
         else:
             colKey = line[colHeader]
 

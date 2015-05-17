@@ -9,7 +9,9 @@
 
     <!--Scripts for jQuery and Highcharts-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+	<script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/data.js"></script>
     <script src="http://code.highcharts.com/modules/heatmap.js"></script>
 
@@ -28,43 +30,39 @@
 <h1>Pivot Table</h1>
 <h2>Make your selection for rows and columns below:</h2>
 
-<form id="tableForm" action="pivot.py" method="GET">
-    <div class="selectors">
-        <h3>Rows</h3>
-        <p class="selector"><input type="radio" name="row" value="Month" checked>Month</p>
-        <p class="selector"><input type="radio" name="row" value="Year">Year</p>
-        <p class="selector"><input type="radio" name="row" value="Australian">Australian</p>
-        <p class="selector"><input type="radio" name="row" value="International">International</p>
-        <p class="selector"><input type="radio" name="row" value="Airline">Airline</p>
-        <p class="selector"><input type="radio" name="row" value="Port Country">Port Country</p>
-        <p class="selector"><input type="radio" name="row" value="Port Region">Port Region</p>
-        <p class="selector"><input type="radio" name="row" value="Service Country">Service Country</p>
-        <p class="selector"><input type="radio" name="row" value="Service Region">Service Region</p>
-    </div>
 
-    <div class="selectors">
-        <h3>Columns</h3>
-        <p class="selector"><input type="radio" name="col" value="Month">Month</p>
-        <p class="selector"><input type="radio" name="col" value="Year" checked>Year</p>
-        <p class="selector"><input type="radio" name="col" value="Australian">Australian</p>
-        <p class="selector"><input type="radio" name="col" value="International">International</p>
-        <p class="selector"><input type="radio" name="col" value="Airline">Airline</p>
-        <p class="selector"><input type="radio" name="col" value="Port Country">Port Country</p>
-        <p class="selector"><input type="radio" name="col" value="Port Region">Port Region</p>
-        <p class="selector"><input type="radio" name="col" value="Service Country">Service Country</p>
-        <p class="selector"><input type="radio" name="col" value="Service Region">Service Region</p>
-    </div>
+<div class="options">
+	<div class="draggable" id="Month">Month</div>
+	<div class="draggable" id="Year">Year</div>
+	<div class="draggable" id="Australian">Australian</div>
+	<div class="draggable" id="International">International</div>
+	<div class="draggable" id="Airline">Airline</div>
+	<div class="draggable" id="Port Country">Port Country</div>
+	<div class="draggable" id="Port Region">Port Region</div>
+	<div class="draggable" id="Service Country">Service Country</div>
+	<div class="draggable" id="Service Region">Service Region</div>
+</div>
 
-</form>
+<div class="selections">
+	<div class="droppable" id="row">Row Header</div>
+	<div class="droppable" id="col">Column Header</div>
+	<div class="droppable" id="filter">Filter</div>
+</div>
 
 <div class="button">
-<button>Generate Table</button>
+<button id="generate">Generate Table</button>
 </div>
 
 <!--Insert the Pivot Table here...-->
 
 
 <div id="container"></div>
+
+
+<div class="footer">
+	<p>Flights and Australia</p>
+	<p>Foundations of Informatics, INFO20002</p>
+</div>
 
 
 </body>
