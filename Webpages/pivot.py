@@ -2,6 +2,7 @@ from csv import DictReader
 from collections import defaultdict
 from lxml import etree
 from cgi import FieldStorage
+from math import log
 import json
 
 def parse_data(csvFile, rowHeader, colHeader):
@@ -103,9 +104,11 @@ def generate_table(rows, cols, data):
         th.text = row
         tr.append(th)
         for col in cols:
-            td = etree.Element("td")
-            td.text = str(data[row][col])
-            tr.append(td)
+            # treat 0 as empty
+            if data[row][col] != 0:
+                td = etree.Element("td")
+                td.text = str(data[row][col])
+                tr.append(td)
         table.append(tr)
 
     return etree.tostring(table)
@@ -122,7 +125,9 @@ def generate_series(rows, cols, data):
 
     for i in range(len(rows)):
         for j in range(len(cols)):
-            series.append([ i, j, data[rows[i]][cols[j]] ])
+            # treat 0 as empty
+            if data[rows[i]][cols[j]] != 0:
+                series.append([ i, j, data[rows[i]][cols[j]] ])
 
     return series
 
@@ -140,11 +145,13 @@ rows, cols, data = parse_data(f, row, col)
 
 #print generate_table(rows, cols, data)
 
-options = { "chart": {"type": "heatmap"},
+options = { "chart": {"type": "heatmap",
+                      "height": 150*log(len(rows))}, #dynamic height respect to number of rows
             "title": {"text": row + " vs. " + col},
             "xAxis": {"categories": rows},
             "yAxis": {"categories": cols}
         }
+
 
 s = {}
 s["name"] = "Number of Flights"
@@ -155,4 +162,4 @@ options["series"] = [s]
 
 print "Content-Type: text/json"
 print  
-print json.dumps(options)
+print json.dumps(options)​​

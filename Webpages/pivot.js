@@ -94,7 +94,17 @@ $(function () {
                 minColor: '#FFFFFF',
                 maxColor: Highcharts.getOptions().colors[0]
             };
+            
+            var tooltip = {
+                formatter: function () {
+                    return this.series.xAxis.categories[this.point.x] + ', ' +
+                        this.series.yAxis.categories[this.point.y] + ': ' +   this.point.value;
+                }
+            }
+            
             options.colorAxis = colorAxis;
+            options.tooltip = tooltip;
+            options.chart.zoomType = "xy";
             $('#container').highcharts(options);
         });
 
