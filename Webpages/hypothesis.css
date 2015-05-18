@@ -1,15 +1,29 @@
-p {
-	font-weight: 400;
-	font-size: 120%;
-}
-
 div.questionBlock {
 	width: 100%;
 	margin: 0px;
-	padding: 30px 15px 30px 15px;
+	padding: 30px 30px 30px 30px;
 }
 
 div.questionBlock:nth-child(even) {
 	background-color: #DDDDDD;
 }
 
+
+div.questionBlock > div {
+	margin: auto;
+}
+
+.answerText {
+	font-size: 120%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 25px;
+	width: 60%
+}
+
+.chart {
+	width: 70%;
+	padding-top: 25px;
+	margin-left: auto;
+	margin-right: auto;
+}

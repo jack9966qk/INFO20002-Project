@@ -1,22 +1,40 @@
+// Global Variables
 var row = undefined, col = undefined, filter = undefined;
-
 
 $(function () {
 
-    $(".draggable").draggable();
+    $(".draggable").draggable({
+
+        revert: function( event, ui ) {
+            // From stackoverflow
+            $(this).data("uiDraggable").originalPosition = {
+                top : 0,
+                left : 0
+            };
+            return !event;
+        },
+
+        start: function( event, ui ) {
+            ui.helper.animate({backgroundColor: "#2A57FF"}, "20");
+        },
+        stop: function( event, ui ) {
+            ui.helper.animate({backgroundColor: "#152B40"}, "20");
+        }
+    });
 
     $("#row.droppable").droppable({
         activate: function( event, ui ) {
             $(this).addClass("dragging");
+            $(this).text("Drag To Here");
         },
         deactivate: function( event, ui ) {
             $(this).removeClass("dragging");
+            $(this).text("Row Header");
         },
         hoverclass: "hovered",
         drop: function( event, ui ) {
             $(this).addClass("dropped");
             row = ui.draggable.attr("id");
-            console.log(row);
         },
         out: function( event, ui ) {
             $(this).removeClass("dropped");
@@ -26,9 +44,11 @@ $(function () {
     $("#col.droppable").droppable({
         activate: function( event, ui ) {
             $(this).addClass("dragging");
+            $(this).text("Drag To Here");
         },
         deactivate: function( event, ui ) {
             $(this).removeClass("dragging");
+            $(this).text("Column Header");
         },
         hoverclass: "hovered",
         drop: function( event, ui ) {
@@ -44,9 +64,11 @@ $(function () {
     $("#filter.droppable").droppable({
         activate: function( event, ui ) {
             $(this).addClass("dragging");
+            $(this).text("Drag To Here");
         },
         deactivate: function( event, ui ) {
             $(this).removeClass("dragging");
+            $(this).text("Filter");
         },
         hoverclass: "hovered",
         drop: function( event, ui ) {
@@ -62,7 +84,6 @@ $(function () {
 
     $("button").click(function(){
         $("#generate").text("Loading...");
-        console.log("row is " + row + " and col is " + col);
         query = "pivot.py?row=" + row + "&col=" + col;
         $.get(query, function(data, status){
             $("#generate").text("Generate Another Table");
