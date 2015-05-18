@@ -8,8 +8,13 @@ body {
 	background-color: #F1EEEA
 }
 
+div {
+	font-family: "Source Sans Pro", sans-serif;
+}
+
 h1, h2, h3, p {
 	width: 90%;
+	max-width: 1000px;
 	font-family: "Source Sans Pro", sans-serif;
 	margin: auto;
 }
@@ -25,7 +30,7 @@ h1 {
 
 h2 {
 	text-align: center;
-	font-family: "Source Sans Pro";
+	font-family: "Source Sans Pro", sans-serif;
 	font-weight: 300;
 	margin-bottom: 20px;
 	font-size: 150%;
@@ -33,13 +38,12 @@ h2 {
 
 h3 {
 	margin-bottom: 15px;
-	font-family: "Source Sans Pro";
+	font-family: "Source Sans Pro", sans-serif;
 	font-weight: 300;
 	font-style: italic;
 	text-align: center;
 	font-size: 200%;
 }
-
 
 h1.title {
 	font-family: 'Quantico', sans-serif;
@@ -67,7 +71,6 @@ div.index-text {
 div.button {
 	text-align: center;
 	margin-bottom: 40px;
-	
 }
 
 p {
@@ -106,7 +109,7 @@ a.button:link {
 }
 
 a.tabButton {
-	font-family: sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
 	border: 1px solid;
 	padding: 4px;
 	padding-left: 10px;
