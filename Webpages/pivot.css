@@ -21,10 +21,12 @@ div {
 	margin: auto;
 }
 
-.draggable, .droppable {
-	cursor: move;
-	clear: none;
+.selections > div {
 	float: left;
+}
+
+.draggable, .droppable {
+	clear: none;
 	text-align: center;
 	vertical-align: center;
 	color: white;
@@ -34,6 +36,8 @@ div {
 }
 
 .draggable {
+	float: left;
+	cursor: move;
 	background-color: #152B40;
 	width: 150px;
 }
@@ -44,6 +48,16 @@ div {
 	width: 300px;
 	padding: 35px;
 	margin: 10px;
+}
+
+.filterOption {
+	clear: both;
+	font-size: 135%;
+	width: 500px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
 }
 
 .dragging {

@@ -5,11 +5,13 @@ from cgi import FieldStorage
 from math import log
 import json
 
-def parse_data(csvFile, rowHeader, colHeader):
+def parse_data(csvFile, rowHeader, colHeader, filterHeader, filterMin = False, filterMax = False):
     """
     csvFile - a csv file returned by the open() function
     rowHeader - a string specifying the rows
     colHeader - a string specifying the columns
+    filter - a string sepecifying the type to filter
+    filterMin/filterMax - the minimum/maximum to keep after filter, inclusive
 
     headers must be the exact string in the headers of the csv file, except "month" and "year"
 
@@ -53,11 +55,25 @@ def parse_data(csvFile, rowHeader, colHeader):
         else:
             colKey = line[colHeader]
 
-        # record the colKey if it's new
-        colKeySet.add(colKey)
+        if filterHeader == "Month":
+            value = line["Month"].split("-")[0]
+        elif filterHeader == "Year":
+            value = "20" + line["Month"].split("-")[-1]
+        else:
+            value = line[filterHeader]
 
-        # count 1 for the coresponding "cell"
-        data[rowKey][colKey] += 1
+        isValid = True
+        if filterMin != False and value < filterMin:
+            isValid = False
+        if filterMin != False and value > filterMin:
+            isValid = False
+
+        if isValid:
+            # record the colKey if it's new
+            colKeySet.add(colKey)
+
+            # count 1 for the coresponding "cell"
+            data[rowKey][colKey] += 1
 
 
     # sort the headers

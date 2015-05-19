@@ -61,7 +61,8 @@ h2.subtitle {
 }
 
 div.index-text {
-	width: 700px;
+	max-width: 750px;
+	width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
