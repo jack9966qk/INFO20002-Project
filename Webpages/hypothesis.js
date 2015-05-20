@@ -28,7 +28,8 @@ $(function () {
         },
 
         data: {
-            googleSpreadsheetKey: '1CTpdP735Zmb7YTKa7HNb-8aWE_UDcwmGSRxXGSzGosU'
+            googleSpreadsheetKey: '1n6GT4EgfTNE1PTMnEDt6jDNz9V2AXK_4n-mI-juw6kE',
+			googleSpreadsheetWorksheet: 1
         }
 
     });
@@ -80,6 +81,38 @@ $(function () {
         }
 
     });
+	    $('#container6').highcharts({
+
+    	chart: {
+    		backgroundColor: "rgba(255, 255, 255, 0.3)"
+    	},
+
+        title: {
+            text: 'Arrivals and Departures'
+        },
+
+        data: {
+            googleSpreadsheetKey: '1n6GT4EgfTNE1PTMnEDt6jDNz9V2AXK_4n-mI-juw6kE',
+			googleSpreadsheetWorksheet: 1
+        }
+
+    })
+	    $('#container7').highcharts({
+
+    	chart: {
+    		backgroundColor: "rgba(255, 255, 255, 0.3)"
+    	},
+
+        title: {
+            text: 'Value of the Australian Value'
+        },
+
+        data: {
+            googleSpreadsheetKey: '1n6GT4EgfTNE1PTMnEDt6jDNz9V2AXK_4n-mI-juw6kE',
+			googleSpreadsheetWorksheet: 2
+        }
+
+    })
 });
 
 
