@@ -3,15 +3,16 @@ $(function () {
     $('#container1').highcharts({
 
     	chart: {
-    		backgroundColor: "rgba(255, 255, 255, 0.3)"
+    		backgroundColor: "rgba(255, 255, 255, 0.3)",
+			type: "bar"
     	},
 
         title: {
-            text: 'Highcharts data from Google Spreadsheets'
+            text: '10 Cities with most traffic'
         },
 
         data: {
-            googleSpreadsheetKey: '179YE0L5fIazP9Umd1VdpgWiftn2H8mO5z84qsbSxQQY'
+            googleSpreadsheetKey: '1IclkUH5X83mTJqqhG8PXAono4DZItgKZTpSYhsUTgtM'
         }
 
     });
@@ -23,7 +24,7 @@ $(function () {
     	},
 
         title: {
-            text: 'Highcharts data from Google Spreadsheets'
+            text: 'Top 10 Airlines'
         },
 
         data: {
