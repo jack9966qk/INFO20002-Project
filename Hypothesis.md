@@ -12,7 +12,7 @@
 
 *Same as above, can also use a map with color to visualise.*
 
-- [Rahul] What are the top 5 most used airlines by Australians travelling overseas?
+- [Rahul x] What are the top 5 most used airlines by Australians travelling overseas?
 
 *Same as above, pie chart is probably better for market share.*
 
@@ -25,7 +25,7 @@
 
 - [Julian] What Australian city has the most number of international travellers visiting?
 
-- [Rahul] What are the top 5 most used airlines by International travellers to get to Australia?
+- [Rahul x] What are the top 5 most used airlines by International travellers to get to Australia?
 
 - [Rahul] What is the most common route taken by international travellers to get to Australia?
 
