@@ -8,7 +8,7 @@ $(function () {
     	},
 
         title: {
-            text: '10 Cities with most traffic'
+            text: '10 Cities with most flight traffic'
         },
 
         data: {
@@ -103,7 +103,7 @@ $(function () {
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)"
     	},
-
+		colors: ['#70ff2d'],
         title: {
             text: 'Value of the Australian Dollar'
         },
@@ -111,6 +111,21 @@ $(function () {
         data: {
             googleSpreadsheetKey: '1n6GT4EgfTNE1PTMnEDt6jDNz9V2AXK_4n-mI-juw6kE', //Rahul's Key
 			googleSpreadsheetWorksheet: 2
+        }
+
+    })
+	   $('#container8').highcharts({
+
+    	chart: {
+    		backgroundColor: "rgba(255, 255, 255, 0.3)",
+			type: "column"
+    	},
+        title: {
+            text: 'Most popular routes taken to and from Australia'
+        },
+
+        data: {
+            googleSpreadsheetKey: '1jdCFKQ3qjZbWkuQgUeBekJpVkvbVMezhohbNgkxp_UA', //Rahul's Key
         }
 
     })
