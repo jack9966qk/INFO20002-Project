@@ -68,6 +68,12 @@ div {
 	background-color: #949FFF;
 }
 
+
+#dateSlider, #dateDisplay {
+	width: 500px;
+	margin: auto;
+}
+
 button {
 	margin-top: 30px;
 }

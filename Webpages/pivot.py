@@ -18,7 +18,7 @@ def parse_data(csvFile, rowHeader, colHeader, filterHeader, filterMin = False, f
     returns (sorted row headers, sorted column headers, 2d dictionary data)
     """
 
-    monthDict = {   
+    monthDict = {
                 "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4,
                 "May": 5, "Jun": 6, "Jul": 7, "Aug": 8,
                 "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12

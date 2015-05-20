@@ -8,11 +8,13 @@ var monthDict = {0: "Jan", 1: "Feb", 2: "Mar", 3: "Apr",
 var startYear = 2003, avaliableHeaders;
 
 function monthToDate(startYear, monthNum) {
-    //Given a start year and the number of months passed, return ["Year", "Month"]
+    // Given a start year and the number of months passed, return ["Year", "Month"]
     years = startYear + Math.floor(monthNum / 12);
     months = monthNum % 12;
     return [years.toString(), monthDict[months]];
 }
+
+
 
 $(function () {
 
@@ -86,7 +88,7 @@ $(function () {
         hoverclass: "hovered",
         drop: function( event, ui ) {
             $(this).addClass("dropped");
-            filter = ui.draggable.attr("id");
+            // TODO
         },
         out: function( event, ui ) {
             $(this).removeClass("dropped");
@@ -94,7 +96,7 @@ $(function () {
     });
 
 
-    
+
     $( "#dateSlider" ).slider({
       range: true,
       min: 0,
@@ -108,10 +110,11 @@ $(function () {
     });
 
 
+
     $("button").click(function(){
         $("#generate").text("Loading...");
         query = "pivot.py?row=" + row + "&col=" + col;
-        $.get(query, function(data, status){
+        $.get(query, function(data, status) {
             $("#generate").text("Generate Another Table");
         
             var options = data;
