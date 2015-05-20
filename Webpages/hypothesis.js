@@ -12,7 +12,7 @@ $(function () {
         },
 
         data: {
-            googleSpreadsheetKey: '1IclkUH5X83mTJqqhG8PXAono4DZItgKZTpSYhsUTgtM'
+            googleSpreadsheetKey: '1IclkUH5X83mTJqqhG8PXAono4DZItgKZTpSYhsUTgtM' //Rahul's key
         }
 
     });
@@ -20,7 +20,8 @@ $(function () {
     $('#container2').highcharts({
 
     	chart: {
-    		backgroundColor: "rgba(255, 255, 255, 0.3)"
+    		backgroundColor: "rgba(255, 255, 255, 0.3)",
+			type: "bar"
     	},
 
         title: {
@@ -28,7 +29,7 @@ $(function () {
         },
 
         data: {
-            googleSpreadsheetKey: '1n6GT4EgfTNE1PTMnEDt6jDNz9V2AXK_4n-mI-juw6kE',
+            googleSpreadsheetKey: '1roA19wO-WiIXiahuphq8Dnov5VB76PY52goUpQQfv8o',
 			googleSpreadsheetWorksheet: 1
         }
 
@@ -92,7 +93,7 @@ $(function () {
         },
 
         data: {
-            googleSpreadsheetKey: '1n6GT4EgfTNE1PTMnEDt6jDNz9V2AXK_4n-mI-juw6kE',
+            googleSpreadsheetKey: '1n6GT4EgfTNE1PTMnEDt6jDNz9V2AXK_4n-mI-juw6kE', //Rahul's Key
 			googleSpreadsheetWorksheet: 1
         }
 
@@ -104,11 +105,11 @@ $(function () {
     	},
 
         title: {
-            text: 'Value of the Australian Value'
+            text: 'Value of the Australian Dollar'
         },
 
         data: {
-            googleSpreadsheetKey: '1n6GT4EgfTNE1PTMnEDt6jDNz9V2AXK_4n-mI-juw6kE',
+            googleSpreadsheetKey: '1n6GT4EgfTNE1PTMnEDt6jDNz9V2AXK_4n-mI-juw6kE', //Rahul's Key
 			googleSpreadsheetWorksheet: 2
         }
 
