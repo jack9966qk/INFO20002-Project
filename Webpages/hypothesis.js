@@ -38,15 +38,22 @@ $(function () {
     $('#container3').highcharts({
 
     	chart: {
-    		backgroundColor: "rgba(255, 255, 255, 0.3)"
+    		backgroundColor: "rgba(255, 255, 255, 0.3)",
+			type: "column"
     	},
+		
+		yAxis: {
+            title: {
+				text: 'Index Percentage Change (2003=0)'
+			}
+        },
 
         title: {
-            text: 'Highcharts data from Google Spreadsheets'
+            text: 'Economy and Business Class airline ticket pricing - CPI'
         },
 
         data: {
-            googleSpreadsheetKey: '1CTpdP735Zmb7YTKa7HNb-8aWE_UDcwmGSRxXGSzGosU'
+            googleSpreadsheetKey: '1y3qV0N6B9MMTdxf11rCuUu5sYBCsz90AXjc7-nnT_pg'
         }
 
     });
