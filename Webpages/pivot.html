@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="pivot.css">
 
-
-	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css">
-
     <!--Scripts for jQuery and Highcharts-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -49,20 +46,31 @@
 	<div class="draggable" id="Port Region">Port Region</div>
 	<div class="draggable" id="Service Country">Service Country</div>
 	<div class="draggable" id="Service Region">Service Region</div>
+	<div class="draggable" id="Stops">Service Region</div>
+	<div class="draggable" id="AllFlights">AllFlights</div>
+	<div class="draggable" id="MaxSeats">MaxSeats</div>
 </div>
 
 <div class="selections">
-	<div>Row:<div class="droppable" id="row">Row Header</div></div>
-	<div>Column:<div class="droppable" id="col">Column Header</div></div>
-	<div>Filter:<div class="droppable" id="filter">Filter</div></div>
+	<div class="droppable" id="row">Row Header</div>
+	<div class="droppable" id="col">Column Header</div>
+	<div class="droppable" id="value">Value</div>
+	<div class="droppable" id="filter">Filter</div>
+</div>
+
+<!-- Aggregate Options -->
+<div>
+	Aggregate Option:
+	<div id="aggregateOption"></div>
 </div>
 
 
-<!-- For Date Range Selection -->
-<div class="dateRangeSelector">
-<div id="dateSlider"></div>
-<input type="text" id="dateDisplay" readonly style="border:0; color:#f6931f; font-weight:bold;">
+<!-- Filter Options -->
+<div>
+	Filter Option:
+	<div id="filterOption"></div>
 </div>
+
 
 <div class="button">
 <button id="generate">Generate Table</button>

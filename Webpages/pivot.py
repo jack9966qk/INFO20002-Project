@@ -5,13 +5,22 @@ from cgi import FieldStorage
 from math import log
 import json
 
-def parse_data(csvFile, rowHeader, colHeader, filterHeader, filterMin = False, filterMax = False):
+def value_of(csvDictIterator, header):
+    if header == "Month":
+        value = csvDictIterator["Month"].split("-")[0]
+    elif header == "Year":
+        value = "20" + csvDictIterator["Month"].split("-")[-1]
+    else:
+        value = csvDictIterator[header]
+    return value
+
+
+def parse_data(csvFile, rowType, colType, valueType, filterType):
     """
     csvFile - a csv file returned by the open() function
-    rowHeader - a string specifying the rows
-    colHeader - a string specifying the columns
-    filter - a string sepecifying the type to filter
-    filterMin/filterMax - the minimum/maximum to keep after filter, inclusive
+    rowType - a string specifying the rows
+    colType - a string specifying the columns
+    filterType - a string sepecifying the type to filter
 
     headers must be the exact string in the headers of the csv file, except "month" and "year"
 
@@ -33,56 +42,31 @@ def parse_data(csvFile, rowHeader, colHeader, filterHeader, filterMin = False, f
     colKeySet = set()    
 
     # check if the input is valid
-    if (rowHeader not in keys + ["Month", "Year"]) or (rowHeader not in keys + ["Month", "Year"]):
+    if (rowType not in keys + ["Month", "Year"]) or (rowType not in keys + ["Month", "Year"]):
         return ""
-
-
 
     # get the number of flights
     for line in reader:
         # determine key used for rows and columns
-        if rowHeader == "Month":
-            rowKey = line["Month"].split("-")[0]
-        elif rowHeader == "Year":
-            rowKey = "20" + line["Month"].split("-")[-1]
-        else:
-            rowKey = line[rowHeader]
+        rowKey = value_of(line, rowType)
+        colKey = value_of(line, colType)
+        value = value_of(line, valueType)
+        toFilter = value_of(line, filterType)
 
-        if colHeader == "Month":
-            colKey = line["Month"].split("-")[0]
-        elif colHeader == "Year":
-            colKey = "20" + line["Month"].split("-")[-1]
-        else:
-            colKey = line[colHeader]
+        ###############
+        # Filter TODO #
+        ###############
 
-        if filterHeader == "Month":
-            value = line["Month"].split("-")[0]
-        elif filterHeader == "Year":
-            value = "20" + line["Month"].split("-")[-1]
-        else:
-            value = line[filterHeader]
-
-        isValid = True
-        if filterMin != False and value < filterMin:
-            isValid = False
-        if filterMin != False and value > filterMin:
-            isValid = False
-
-        if isValid:
-            # record the colKey if it's new
-            colKeySet.add(colKey)
-
-            # count 1 for the coresponding "cell"
-            data[rowKey][colKey] += 1
-
+        colKeySet.add(colKey)
+        data[rowKey][colKey] += value
 
     # sort the headers
-    if rowHeader == "Month":
+    if rowType == "Month":
         rows = sorted(data.keys(), key = lambda x: monthDict[x])
     else:
         rows = sorted(data.keys())
 
-    if colHeader == "Month":
+    if colType == "Month":
         cols = sorted(list(colKeySet), key = lambda x: monthDict[x])
     else: 
         cols = sorted(list(colKeySet))
