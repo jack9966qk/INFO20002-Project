@@ -148,6 +148,7 @@ ul.tabBar li {
 nav {
 	background-color: rgba(172,187,197,0.9);
 	position: fixed;
+	z-index: 9999;
 	top: 0px;
 	width: 100%;
 	margin: 0px;

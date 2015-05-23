@@ -1,6 +1,9 @@
 $(function () {
     // Create the chart
     $('#container1').highcharts({
+        credit: {
+            enabled: false
+        },
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
@@ -41,6 +44,9 @@ $(function () {
     });
 
     $('#container2').highcharts({
+        credit: {
+            enabled: false
+        },
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
@@ -75,6 +81,9 @@ $(function () {
     });
 	
 	$('#container3').highcharts({
+        credit: {
+            enabled: false
+        },
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
@@ -108,6 +117,9 @@ $(function () {
     });
 	
     $('#container4').highcharts({
+        credit: {
+            enabled: false
+        },
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
@@ -135,6 +147,9 @@ $(function () {
     });
 
     $('#container5').highcharts({
+        credit: {
+            enabled: false
+        },
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)"
@@ -153,7 +168,12 @@ $(function () {
         }
 
     });
-	    $('#container6').highcharts({
+
+
+	$('#container6').highcharts({
+        credit: {
+            enabled: false
+        },
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)"
@@ -172,8 +192,17 @@ $(function () {
 			googleSpreadsheetWorksheet: 1
         }
 
+<<<<<<< HEAD
     });
 	    $('#container7').highcharts({
+=======
+    })
+	    
+    $('#container7').highcharts({
+        credit: {
+            enabled: false
+        },
+>>>>>>> origin/master
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)"
@@ -192,8 +221,17 @@ $(function () {
 			googleSpreadsheetWorksheet: 2
         }
 
+<<<<<<< HEAD
     });
 	   $('#container8').highcharts({
+=======
+    })
+	   
+    $('#container8').highcharts({
+        credit: {
+            enabled: false
+        },
+>>>>>>> origin/master
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
