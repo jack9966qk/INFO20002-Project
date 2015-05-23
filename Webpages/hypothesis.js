@@ -10,6 +10,29 @@ $(function () {
         title: {
             text: 'Cities with the most flight traffic'
         },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
+        },
+		
+		xAxis: {
+            crosshair: true
+        },
+		
+		yAxis: {
+            title: {
+                text: 'Number of Flights'
+            }
+        },
+		
+	    tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:f}k</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
 
         data: {
             googleSpreadsheetKey: '1VcjbxN02sGPudOuGCi_cdef6htU6P44HhDefdewK6t8'//Rahul's key
@@ -26,6 +49,11 @@ $(function () {
 
         title: {
             text: 'Airline Market Share - September 2003'
+        },
+		
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
         },
 		
 		plotOptions: {
@@ -55,6 +83,10 @@ $(function () {
 
         title: {
             text: 'Airline Market Share - September 2014'
+        },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
         },
 		
 		plotOptions: {
@@ -91,6 +123,10 @@ $(function () {
         title: {
             text: 'Economy and Business Class airline ticket pricing - CPI'
         },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
+        },
 
         data: {
             googleSpreadsheetKey: '1y3qV0N6B9MMTdxf11rCuUu5sYBCsz90AXjc7-nnT_pg' //Rahul's Key
@@ -107,6 +143,10 @@ $(function () {
         title: {
             text: 'Highcharts data from Google Spreadsheets'
         },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
+        },
 
         data: {
             googleSpreadsheetKey: '1CTpdP735Zmb7YTKa7HNb-8aWE_UDcwmGSRxXGSzGosU'
@@ -121,6 +161,10 @@ $(function () {
 
         title: {
             text: 'Arrivals and Departures'
+        },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
         },
 
         data: {
@@ -138,6 +182,10 @@ $(function () {
         title: {
             text: 'Value of the Australian Dollar'
         },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
+        },
 
         data: {
             googleSpreadsheetKey: '1n6GT4EgfTNE1PTMnEDt6jDNz9V2AXK_4n-mI-juw6kE', //Rahul's Key
@@ -153,6 +201,14 @@ $(function () {
     	},
         title: {
             text: 'Most popular routes taken to and from Australia'
+        },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
+        },
+		
+		xAxis: {
+            crosshair: true
         },
 
         data: {
