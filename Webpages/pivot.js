@@ -38,22 +38,25 @@ function generate_options(header, position) {
             var len = data.length;
             for (var i = 0; i < len; i++) {
                 option = data[i];
-                div += "<div>";
-                div += '<input type="checkbox" ckecked="ckecked" class="filterOption" ' +
+                div += "<div>";s
+                div += '<input type="checkbox" ckecked="ckecked" class="filOption" ' +
                         'id="' + option + '">' + option;
                 div += "</div>";
             }
             position.append(div);
         }
     })
+    $("#filterOptions").attr("hidden", false);
 }
 
 
 function update_button() {
     if ( row != undefined && col != undefined && val != undefined) {
         $("button").attr("disabled", false);
+        $("button").text("Generate Table");
     } else {
         $("button").attr("disabled", true);
+        $("button").text("Drag Options to Boxes");
     }
 }
 
@@ -160,9 +163,9 @@ $(function () {
         hoverclass: "hovered",
         drop: function( event, ui ) {
             $(this).addClass("dropped");
-            $("#filterOption").empty();
+            $("#selector").empty();
             filter = ui.draggable.attr("id");
-            generate_options(ui.draggable.attr("id"), $("#filterOption"));
+            generate_options(ui.draggable.attr("id"), $("#selector"));
         },
         out: function( event, ui ) {
             $(this).removeClass("dropped");
@@ -171,7 +174,7 @@ $(function () {
 
 
     $("button").click(function(){
-        $("#generate").text("Loading...");
+        $("#generate").text("Generating...");
         query = "pivot.py?row=" + row + "&col=" + col + "&val=" + val;
         
         var agg = $("#aggSelect").val();
@@ -200,7 +203,7 @@ $(function () {
         
 
         $.get(query, function(data, status) {
-            $("#generate").text("Generate Another Table");
+            $("#generate").text("Here is");
         
             var options = data;
             var colorAxis = {

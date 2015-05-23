@@ -17,48 +17,56 @@ div {
 }
 
 .options, .selections {
-	width: 60%;
-	margin: auto;
-}
-
-.selections > div {
-	float: left;
+	text-align: center;
+	width: 80%;
+	margin: 0px auto 30px auto;
 }
 
 .draggable, .droppable {
-	clear: none;
+	display: inline-block;
 	text-align: center;
 	vertical-align: center;
 	color: white;
 	border-radius: 5px;
 	padding: 15px;
-	margin: 10px;
+	margin: 7px;
 }
 
 .draggable {
-	float: left;
 	cursor: move;
 	background-color: #152B40;
-	width: 150px;
+	width: 15%;
+	min-width: 100px;
 }
 
 .droppable {
-	float: left;
 	font-size: 150%;
 	background-color: #587F47;
-	width: 250px;
+	width: 17%;
 	padding: 35px;
-	margin: 10px;
+	margin: 7px;
 }
 
 .filterOption {
-	clear: both;
 	font-size: 135%;
 	width: 500px;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 20px;
+}
+
+#selector {
+	width: 70%;
+	margin: 30px auto 0px auto;
+}
+
+
+#selector > div {
+	width: 150px;
+	height: 80px;
+	padding: 5px;
+	display: inline-table;
 }
 
 .dragging {
@@ -70,15 +78,30 @@ div {
 }
 
 
-#dateSlider, #dateDisplay {
-	width: 500px;
-	margin: auto;
+#aggregateOptions, #filterOptions {
+	clear: both;
+	text-align: center;
+	font-size: 130%;
+	width: 300;
+	margin: 50px auto 30px auto;
 }
+
+#aggSelect {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 90%;
+	width: 100px;
+	height: 119px;
+	overflow: hidden;
+}
+
 
 button {
 	margin-top: 30px;
 }
 
 button:disabled {
+	border-width: 0;
+	color: black;
 	background: #dddddd;
 }
