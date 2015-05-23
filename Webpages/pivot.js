@@ -39,7 +39,7 @@ function generate_options(header, position) {
             for (var i = 0; i < len; i++) {
                 option = data[i];
                 div += "<div>";
-                div += '<input type="checkbox" class="filterOption" ' +
+                div += '<input type="checkbox" ckecked="ckecked" class="filterOption" ' +
                         'id="' + option + '">' + option;
                 div += "</div>";
             }
@@ -51,9 +51,9 @@ function generate_options(header, position) {
 
 function update_button() {
     if ( row != undefined && col != undefined && val != undefined) {
-        $("button").prop('disabled', false);
+        $("button").attr("disabled", false);
     } else {
-        $("button").prop('disabled', false);
+        $("button").attr("disabled", true);
     }
 }
 
@@ -61,9 +61,9 @@ function update_button() {
 $(function () {
 
     $(".draggable").draggable({
-
         revert: function( event, ui ) {
-            // From stackoverflow
+            // Return to original position when not dragged to droppable
+            //    From stackoverflow
             $(this).data("uiDraggable").originalPosition = {
                 top : 0,
                 left : 0
@@ -90,12 +90,15 @@ $(function () {
         },
         hoverclass: "hovered",
         drop: function( event, ui ) {
+            ui.draggable.data('dropped', true);
             $(this).addClass("dropped");
             row = ui.draggable.attr("id");
             update_button();
         },
         out: function( event, ui ) {
             $(this).removeClass("dropped");
+            row = undefined;
+            update_button();
         }
     });
 
@@ -116,10 +119,13 @@ $(function () {
         },
         out: function( event, ui ) {
             $(this).removeClass("dropped");
+            col = undefined;
+            update_button();
         }
     });
 
     $("#val.droppable").droppable({
+        accept: "#MaxSeats, #AllFlights",
         activate: function( event, ui ) {
             $(this).addClass("dragging");
             $(this).text("Drag To Here");
@@ -136,6 +142,8 @@ $(function () {
         },
         out: function( event, ui ) {
             $(this).removeClass("dropped");
+            val = undefined;
+            update_button();
         }
     });
 
@@ -188,8 +196,8 @@ $(function () {
             }
         }
         
-        console.log(query);
-
+        console.log(query)
+        
 
         $.get(query, function(data, status) {
             $("#generate").text("Generate Another Table");

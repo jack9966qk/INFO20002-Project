@@ -16,10 +16,10 @@ def print_filter_options(csvFile, header):
 
     print "Content-Type: text/json"
     print  
-    if header in ["AllFlights", "MaxSeats", "Year"]:
+    if header in ["AllFlights", "MaxSeats", "Stops"]:
         print json.dumps(boundary_values(csvFile, header))
     else:
-        print json.dumps(list(unique_values(csvFile, header)))
+        print json.dumps(sorted(list(unique_values(csvFile, header))))
 
 
 form = FieldStorage()

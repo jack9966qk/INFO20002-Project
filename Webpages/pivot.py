@@ -11,7 +11,7 @@ def value_of(csvDictIterator, header, bin_size = 0):
         value = csvDictIterator["Month"].split("-")[0]
     elif header == "Year":
         value = "20" + csvDictIterator["Month"].split("-")[-1]
-    elif header in ["MaxSeats", "AllFlights"]:
+    elif header in ["MaxSeats", "AllFlights", "Stops"]:
         num = int( csvDictIterator[header].replace(" ", "") ) #remove whitespaces
         if bin_size == 0:
             value = num
@@ -117,7 +117,7 @@ def parse_data(csvFile, rowType, colType, valueType, filterType = "", filterOpti
         value = value_of(line, valueType)
         
 
-        if filterType in ["MaxSeats", "AllFlights", "Year"]:
+        if filterType in ["MaxSeats", "AllFlights", "Stops"]:
             # number range as filter
             toFilter = value_of(line, filterType)
             if (toFilter > int(filterOptions[0])) and (toFilter < int(filterOptions[1])):
@@ -143,7 +143,7 @@ def parse_data(csvFile, rowType, colType, valueType, filterType = "", filterOpti
     elif rowType in ["MaxSeats", "AllFlights"]:
         # get the bins
         rows = []
-        i = 0
+        i = row_minvalue
         while i + row_binsize < row_maxvalue:
             rows.append( str(i) + "-" + str(i + row_binsize) )
             i += row_binsize
@@ -230,7 +230,7 @@ if __name__ == "__main__":
        
 
     options = { "chart": {"type": "heatmap",
-                      "height": 150*log(len(rows))}, #dynamic height respect to number of rows
+                      "height": 250*log(len(rows))}, #dynamic height respect to number of rows
             "title": {"text": row + " vs. " + col},
             "xAxis": {"categories": rows},
             "yAxis": {"categories": cols}
