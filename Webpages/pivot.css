@@ -78,3 +78,7 @@ div {
 button {
 	margin-top: 30px;
 }
+
+button:disabled {
+	background: #dddddd;
+}

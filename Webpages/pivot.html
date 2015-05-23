@@ -6,15 +6,16 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="pivot.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/black-tie/jquery-ui.min.css">
 
     <!--Scripts for jQuery and Highcharts-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    
     <!--For touch events-->
     <script src="jquery-ui-touch-punch.min.js"></script>
 
-	<script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/data.js"></script>
     <script src="http://code.highcharts.com/modules/heatmap.js"></script>
 
@@ -37,38 +38,46 @@
 
 
 <div class="options">
-	<div class="draggable" id="Month">Month</div>
-	<div class="draggable" id="Year">Year</div>
-	<div class="draggable" id="Australian">Australian</div>
-	<div class="draggable" id="International">International</div>
-	<div class="draggable" id="Airline">Airline</div>
-	<div class="draggable" id="Port Country">Port Country</div>
-	<div class="draggable" id="Port Region">Port Region</div>
-	<div class="draggable" id="Service Country">Service Country</div>
-	<div class="draggable" id="Service Region">Service Region</div>
-	<div class="draggable" id="Stops">Service Region</div>
-	<div class="draggable" id="AllFlights">AllFlights</div>
-	<div class="draggable" id="MaxSeats">MaxSeats</div>
+    <div class="draggable" id="Month">Month</div>
+    <div class="draggable" id="Year">Year</div>
+    <div class="draggable" id="Australian">Australian</div>
+    <div class="draggable" id="International">International</div>
+    <div class="draggable" id="Airline">Airline</div>
+    <div class="draggable" id="Port Country">Port Country</div>
+    <div class="draggable" id="Port Region">Port Region</div>
+    <div class="draggable" id="Service Country">Service Country</div>
+    <div class="draggable" id="Service Region">Service Region</div>
+    <div class="draggable" id="Stops">Service Region</div>
+    <div class="draggable" id="AllFlights">AllFlights</div>
+    <div class="draggable" id="MaxSeats">MaxSeats</div>
 </div>
 
 <div class="selections">
-	<div class="droppable" id="row">Row Header</div>
-	<div class="droppable" id="col">Column Header</div>
-	<div class="droppable" id="value">Value</div>
-	<div class="droppable" id="filter">Filter</div>
+    <div class="droppable" id="row">Row Header</div>
+    <div class="droppable" id="col">Column Header</div>
+    <div class="droppable" id="val">Value</div>
+    <div class="droppable" id="filter">Filter</div>
 </div>
 
 <!-- Aggregate Options -->
 <div>
-	Aggregate Option:
-	<div id="aggregateOption"></div>
+    Aggregate Options:
+    <div id="aggregateOption">
+        <select id="aggSelect" multiple="multiple">
+            <option value="count">Count</option>
+            <option value="sum" selected="selected">Sum</option>
+            <option value="avg">Average</option>
+            <option value="min">Minimum</option>
+            <option value="max">Maximum</option>
+        </select>
+    </div>
 </div>
 
 
 <!-- Filter Options -->
 <div>
-	Filter Option:
-	<div id="filterOption"></div>
+    Filter Options:
+    <div id="filterOption"></div>
 </div>
 
 
@@ -82,8 +91,8 @@
 
 
 <div class="footer">
-	<p>Flights and Australia</p>
-	<p>Foundations of Informatics, INFO20002</p>
+    <p>Flights and Australia</p>
+    <p>Foundations of Informatics, INFO20002</p>
 </div>
 
 
