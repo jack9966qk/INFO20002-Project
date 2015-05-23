@@ -172,7 +172,7 @@ $(function () {
 			googleSpreadsheetWorksheet: 1
         }
 
-    })
+    });
 	    $('#container7').highcharts({
 
     	chart: {
@@ -192,7 +192,7 @@ $(function () {
 			googleSpreadsheetWorksheet: 2
         }
 
-    })
+    });
 	   $('#container8').highcharts({
 
     	chart: {
@@ -215,7 +215,31 @@ $(function () {
             googleSpreadsheetKey: '1DkgzFtue_gOly52Qxr9J3OVsjTJLy_Bsh5R8lRL1Uv8', //Rahul's Key
         }
 
-    })
+    });
+
+       $('#container9').highcharts({
+
+    	chart: {
+    		backgroundColor: "rgba(255, 255, 255, 0.3)",
+			type: "column"
+    	},
+        title: {
+            text: 'Top 10 countries travelled to from Australia'
+        },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
+        },
+		
+		xAxis: {
+            crosshair: true
+        },
+
+        data: {
+            googleSpreadsheetKey: '1Mowpe6EIG78esqQcyyEscuSO5gP6yymjNMR-T9r9P9M', //Julian's Key
+        }
+
+    });
 });
 
 
