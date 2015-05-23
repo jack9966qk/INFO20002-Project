@@ -4,15 +4,15 @@ $(function () {
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
-			type: "bar"
+			type: "column"
     	},
 
         title: {
-            text: '10 Cities with most flight traffic'
+            text: 'Cities with the most flight traffic'
         },
 
         data: {
-            googleSpreadsheetKey: '1IclkUH5X83mTJqqhG8PXAono4DZItgKZTpSYhsUTgtM' //Rahul's key
+            googleSpreadsheetKey: '1VcjbxN02sGPudOuGCi_cdef6htU6P44HhDefdewK6t8'//Rahul's key
         }
 
     });
@@ -21,21 +21,61 @@ $(function () {
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
-			type: "bar"
+			type: "pie"
     	},
 
         title: {
-            text: 'Top 10 Airlines'
+            text: 'Airline Market Share - September 2003'
         },
-
+		
+		plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+				dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+				}
+			}
+		},
+		
         data: {
-            googleSpreadsheetKey: '1roA19wO-WiIXiahuphq8Dnov5VB76PY52goUpQQfv8o',
+            googleSpreadsheetKey: '1tqsRCX55dmxXTiNdtMJ95vplWac7AZ-on2bO70RDLVE', //Rahul's Key
 			googleSpreadsheetWorksheet: 1
         }
 
     });
+	
+	$('#container3').highcharts({
 
-    $('#container3').highcharts({
+    	chart: {
+    		backgroundColor: "rgba(255, 255, 255, 0.3)",
+			type: "pie"
+    	},
+
+        title: {
+            text: 'Airline Market Share - September 2014'
+        },
+		
+		plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+				dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+				}
+			}
+		},
+
+        data: {
+            googleSpreadsheetKey: '1tqsRCX55dmxXTiNdtMJ95vplWac7AZ-on2bO70RDLVE', //Rahul's Key
+			googleSpreadsheetWorksheet: 2
+        }
+
+    });
+	
+    $('#container4').highcharts({
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
@@ -53,23 +93,7 @@ $(function () {
         },
 
         data: {
-            googleSpreadsheetKey: '1y3qV0N6B9MMTdxf11rCuUu5sYBCsz90AXjc7-nnT_pg'
-        }
-
-    });
-
-    $('#container4').highcharts({
-
-    	chart: {
-    		backgroundColor: "rgba(255, 255, 255, 0.3)"
-    	},
-
-        title: {
-            text: 'Highcharts data from Google Spreadsheets'
-        },
-
-        data: {
-            googleSpreadsheetKey: '1CTpdP735Zmb7YTKa7HNb-8aWE_UDcwmGSRxXGSzGosU'
+            googleSpreadsheetKey: '1y3qV0N6B9MMTdxf11rCuUu5sYBCsz90AXjc7-nnT_pg' //Rahul's Key
         }
 
     });
@@ -132,7 +156,7 @@ $(function () {
         },
 
         data: {
-            googleSpreadsheetKey: '1jdCFKQ3qjZbWkuQgUeBekJpVkvbVMezhohbNgkxp_UA', //Rahul's Key
+            googleSpreadsheetKey: '1DkgzFtue_gOly52Qxr9J3OVsjTJLy_Bsh5R8lRL1Uv8', //Rahul's Key
         }
 
     })
