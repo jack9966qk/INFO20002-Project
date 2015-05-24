@@ -8,7 +8,7 @@
 
 *Simply sum up the numbers for all destinations and use a bar/pie chart to visualise.*
 
-- [Julian] What city has the most Australians travelling overseas?
+- [Julian x] What city has the most Australians travelling overseas?
 
 *Same as above, can also use a map with color to visualise.*
 
