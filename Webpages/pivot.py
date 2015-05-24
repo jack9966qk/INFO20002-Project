@@ -25,7 +25,8 @@ def value_of(csvDictIterator, header, bin_size = 0):
 
 def boundary_values(csvFile, header):
     """return [min value, max value] in the csv file given the header"""
-    reader = DictReader(csvFile)
+    f = open(csvFile)
+    reader = DictReader(f)
     
     firstLine = reader.next()
     minValue = maxValue = value_of(firstLine, header)
