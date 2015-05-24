@@ -17,7 +17,7 @@ function generate_options(header, position) {
             // generate a range slider
             isNumFilter = true;
             
-            div += '<input type="text" id="rangeDisplay" readonly style="border:0; color:#f6931f; font-weight:bold;"><div id="rangeSlider"></div>';
+            div += '<input type="text" id="rangeDisplay"><div id="rangeSlider"></div>';
             position.append(div);
             $( "#rangeSlider" ).slider({
                 range: true,
@@ -38,9 +38,9 @@ function generate_options(header, position) {
             var len = data.length;
             for (var i = 0; i < len; i++) {
                 option = data[i];
-                div += "<div>";s
+                div += '<div class="cell">';
                 div += '<input type="checkbox" ckecked="ckecked" class="filOption" ' +
-                        'id="' + option + '">' + option;
+                        'id="' + option + '"><br/>' + option;
                 div += "</div>";
             }
             position.append(div);
@@ -163,11 +163,11 @@ $(function () {
         hoverclass: "hovered",
         drop: function( event, ui ) {
             $(this).addClass("dropped");
-            $("#selector").empty();
             filter = ui.draggable.attr("id");
             generate_options(ui.draggable.attr("id"), $("#selector"));
         },
         out: function( event, ui ) {
+            $("#selector").empty();
             $(this).removeClass("dropped");
         }
     });
