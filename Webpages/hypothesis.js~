@@ -283,7 +283,7 @@ $(function () {
 			type: "column"
     	},
         title: {
-            text: 'What city in Australia has the most number of international travellers visiting?
+            text: 'What city in Australia has the most number of international travellers visiting?'
         },
 		
 		subtitle: {
