@@ -306,6 +306,68 @@ $(function () {
         }
 
     });
+       
+       $('#container11').highcharts({
+
+    	chart: {
+    		backgroundColor: "rgba(255, 255, 255, 0.3)",
+			type: "column"
+    	},
+        title: {
+            text: 'Top 10 international cities visiting Australia'
+        },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
+        },
+		
+		xAxis: {
+            crosshair: true
+        },
+        
+        yAxis: {
+            title: {
+                text: 'Number of Flights'
+            }
+        },
+
+        data: {
+            googleSpreadsheetKey: '1Mowpe6EIG78esqQcyyEscuSO5gP6yymjNMR-T9r9P9M', //Julian's Key
+            googleSpreadsheetWorksheet: 3
+        }
+
+    });
+       
+       $('#container12').highcharts({
+
+    	chart: {
+    		backgroundColor: "rgba(255, 255, 255, 0.3)",
+			type: "column"
+    	},
+        title: {
+            text: 'Top cities in Australia departing from'
+        },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
+        },
+		
+		xAxis: {
+            crosshair: true
+        },
+        
+        yAxis: {
+            title: {
+                text: 'Number of Flights'
+            }
+        },
+
+        data: {
+            googleSpreadsheetKey: '1Mowpe6EIG78esqQcyyEscuSO5gP6yymjNMR-T9r9P9M', //Julian's Key
+            googleSpreadsheetWorksheet: 4
+        }
+
+    });
 });
 
 

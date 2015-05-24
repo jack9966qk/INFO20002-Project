@@ -23,7 +23,7 @@
 
 ##For these questions filter column B IN/OUT = I (Inbound)
 
-- [Julian] What Australian city has the most number of international travellers visiting?
+- [Julian x] What Australian city has the most number of international travellers visiting?
 
 - [Rahul x] What are the top 5 most used airlines by International travellers to get to Australia?
 
