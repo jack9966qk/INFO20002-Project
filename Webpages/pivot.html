@@ -65,19 +65,19 @@
 <div id="aggregateOptions">
     Aggregate Options:
     <div>
-        <select id="aggSelect" multiple="multiple">
-            <option value="count">Count</option>
-            <option value="sum" selected="selected">Sum</option>
-            <option value="avg">Average</option>
-            <option value="min">Minimum</option>
-            <option value="max">Maximum</option>
-        </select>
+        <form>
+        <input type="radio" name="aggregate" value="count">Count
+        <input type="radio" name="aggregate" value="sum" checked="checked">Sum
+        <input type="radio" name="aggregate" value="avg">Average
+        <input type="radio" name="aggregate" value="min">Minimum
+        <input type="radio" name="aggregate" value="max">Maximum
+        </form>
     </div>
 </div>
 
 
 <!-- Filter Options -->
-<div id="filterOptions">
+<div id="filterOptions" hidden="hidden">
     Filter Options:
     <div id="selector">
     </div>

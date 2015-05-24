@@ -177,9 +177,9 @@ $(function () {
         $("#generate").text("Generating...");
         query = "pivot.py?row=" + row + "&col=" + col + "&val=" + val;
         
-        var agg = $("#aggSelect").val();
+        var agg = $('input[name=aggregate]:checked').val();
         query += "&agg=" + agg;
-        
+                
         if (filter != undefined) {
             query += "&fil=" + filter;
             if (isNumFilter) {
@@ -203,7 +203,8 @@ $(function () {
         
 
         $.get(query, function(data, status) {
-            $("#generate").text("Here is");
+            $("#generate").text("Here is:");
+            $("button").attr("disabled", true);
         
             var options = data;
             var colorAxis = {

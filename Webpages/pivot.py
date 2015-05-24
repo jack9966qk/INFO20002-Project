@@ -39,6 +39,7 @@ def boundary_values(csvFile, header):
 
     return [minValue, maxValue]
 
+
 def bin_size(minimum, maximum):
     """
     given the minimum and maximum numbers
@@ -49,18 +50,24 @@ def bin_size(minimum, maximum):
     binsize = int(round(size/10, -(mag-1)))
     return binsize
     
+
 def unique_values(csvFile, header):
-    """return a set for unique values in the csv file given the header"""
+    """return a list of unique values in the csv file given the header"""
+    if header == "Month":
+        return ["Jan", "Feb", "Mar", "Apr",
+                "May", "Jun", "Jul", "Aug",
+                "Sep", "Oct", "Nov", "Dec"]
+    
+    f = open(csvFile)
     uniques = set()
 
-    reader = DictReader(csvFile)
+    reader = DictReader(f)
 
     for row in reader:
         value = value_of(row, header)
         uniques.add(value)
 
-    return uniques
-
+    return sorted(list(uniques))
 
 
 def parse_data(csvFile, rowType, colType, valueType, filterType = "", filterOptions = []):
@@ -83,65 +90,13 @@ def parse_data(csvFile, rowType, colType, valueType, filterType = "", filterOpti
                 "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12
                 }
     
-    if row in ["MaxSeats", "AllFlights"]:
+    row_binsize = col_binsize = 1
+    
+    # get the header
+    if rowType in ["MaxSeats", "AllFlights"]:
+        # get the bins
         (row_minvalue, row_maxvalue) = boundary_values(csvFile, rowType)
         row_binsize = bin_size(row_minvalue, row_maxvalue)
-    else:
-        row_binsize = 1
-
-    if col in ["MaxSeats", "AllFlights"]:
-        (col_minvalue, col_maxvalue) = boundary_values(csvFile, colType)
-        col_binsize = bin_size(col_minvalue, col_maxvalue)
-    else:
-        col_binsize = 1
-        
-    csvFile.seek(0)
-    reader = DictReader(csvFile)
-    keys = reader.fieldnames
-
-    # use a 2-dimensional dictionary as a buffer
-    data = defaultdict(lambda: defaultdict(list))
-    # used to store all unique column headers
-    colKeySet = set()
-
-    # check if the input is valid
-    if (rowType not in keys + ["Month", "Year"]) or (rowType not in keys + ["Month", "Year"]):
-        return ""
-
-    
-    
-    for line in reader:
-        # determine key used for rows and columns
-        rowKey = value_of(line, rowType, row_binsize)
-        colKey = value_of(line, colType, col_binsize)
-        value = value_of(line, valueType)
-        
-
-        if filterType in ["MaxSeats", "AllFlights", "Stops"]:
-            # number range as filter
-            toFilter = value_of(line, filterType)
-            if (toFilter > int(filterOptions[0])) and (toFilter < int(filterOptions[1])):
-                data[rowKey][colKey].append(value)
-                colKeySet.add(colKey)
-        elif filterType:
-            # selections as filter
-            toFilter = value_of(line, filterType)
-            if toFilter in filterOptions:
-                data[rowKey][colKey].append(value)
-                colKeySet.add(colKey)
-        else:
-            # no filter
-            data[rowKey][colKey].append( value )
-            colKeySet.add(colKey)
-
-
-    # get the header
-    if rowType == "Month":
-        rows = ["Jan", "Feb", "Mar", "Apr",
-                "May", "Jun", "Jul", "Aug",
-                "Sep", "Oct", "Nov", "Dec"]
-    elif rowType in ["MaxSeats", "AllFlights"]:
-        # get the bins
         rows = []
         i = row_minvalue
         while i + row_binsize < row_maxvalue:
@@ -149,22 +104,47 @@ def parse_data(csvFile, rowType, colType, valueType, filterType = "", filterOpti
             i += row_binsize
         rows.append( str(i) + "-" + str(min(row_maxvalue, i + row_binsize)) )
     else:
-        rows = sorted(data.keys())
+        rows = unique_values(csvFile, rowType)
 
-    if colType == "Month":
-        cols = ["Jan", "Feb", "Mar", "Apr",
-                "May", "Jun", "Jul", "Aug",
-                "Sep", "Oct", "Nov", "Dec"]
-    elif colType in ["MaxSeats", "AllFlights"]:
+    if colType in ["MaxSeats", "AllFlights"]:
         # get the bins
+        (col_minvalue, col_maxvalue) = boundary_values(csvFile, colType)
+        col_binsize = bin_size(col_minvalue, col_maxvalue)
         cols = []
-        i = 0
+        i = col_minvalue
         while i + col_binsize < col_maxvalue:
             cols.append( str(i) + "-" + str(i + col_binsize) )
             i += col_binsize
         cols.append( str(i) + "-" + str(min(col_maxvalue, i + col_binsize)) )
-    else: 
-        cols = sorted(list(colKeySet))
+    else:
+        cols = unique_values(csvFile, colType)
+        
+    f = open(csvFile)
+    reader = DictReader(f)
+    keys = reader.fieldnames
+
+    # use a 2-dimensional dictionary as a buffer
+    data = defaultdict(lambda: defaultdict(list))
+
+    for line in reader:
+        # determine key used for rows and columns
+        rowKey = value_of(line, rowType, row_binsize)
+        colKey = value_of(line, colType, col_binsize)
+        value = value_of(line, valueType)
+        
+        if filterType in ["MaxSeats", "AllFlights", "Stops"]:
+            # number range as filter
+            toFilter = value_of(line, filterType)
+            if (toFilter > int(filterOptions[0])) and (toFilter < int(filterOptions[1])):
+                data[rowKey][colKey].append(value)
+        elif filterType:
+            # selections as filter
+            toFilter = value_of(line, filterType)
+            if toFilter in filterOptions:
+                data[rowKey][colKey].append(value)
+        else:
+            # no filter
+            data[rowKey][colKey].append(value)
 
     return (rows, cols, data)
 
@@ -178,10 +158,8 @@ def generate_series(rows, cols, data, aggOption):
 
     returns the data array for Highcharts
     """
-    
-    
     series = []
-
+    
     for i in range(len(rows)):
         for j in range(len(cols)):
             l = data[rows[i]][cols[j]]
@@ -211,9 +189,7 @@ if __name__ == "__main__":
     col = form["col"].value
     val = form["val"].value
     agg = form["agg"].value
-    
-    f = open("Data.csv")
-    
+        
     if "fil" in form:
         fil = form["fil"].value
         if "min" in form:
@@ -222,9 +198,9 @@ if __name__ == "__main__":
             filOptions = form.getlist("opt")
         else:
             filOptions = []
-        rows, cols, data = parse_data(f, row, col, val, fil, filOptions)
+        rows, cols, data = parse_data("Data.csv", row, col, val, fil, filOptions)
     else:
-        rows, cols, data = parse_data(f, row, col, val)
+        rows, cols, data = parse_data("Data.csv", row, col, val)
     
     
        
