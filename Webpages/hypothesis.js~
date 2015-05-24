@@ -262,9 +262,47 @@ $(function () {
 		xAxis: {
             crosshair: true
         },
+        
+        yAxis: {
+            title: {
+                text: 'Number of Flights'
+            }
+        },
 
         data: {
             googleSpreadsheetKey: '1Mowpe6EIG78esqQcyyEscuSO5gP6yymjNMR-T9r9P9M', //Julian's Key
+            googleSpreadsheetWorksheet: 1
+        }
+
+    });
+       
+       $('#container10').highcharts({
+
+    	chart: {
+    		backgroundColor: "rgba(255, 255, 255, 0.3)",
+			type: "column"
+    	},
+        title: {
+            text: 'What city in Australia has the most number of international travellers visiting?
+        },
+		
+		subtitle: {
+            text: 'Source: bitre.gov.au'
+        },
+		
+		xAxis: {
+            crosshair: true
+        },
+        
+        yAxis: {
+            title: {
+                text: 'Number of Flights'
+            }
+        },
+
+        data: {
+            googleSpreadsheetKey: '1Mowpe6EIG78esqQcyyEscuSO5gP6yymjNMR-T9r9P9M', //Julian's Key
+            googleSpreadsheetWorksheet: 2
         }
 
     });
