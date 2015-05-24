@@ -4,8 +4,9 @@ function initialize() {
         zoom: 2
     };
     
-    var map = new google.maps.Map(document.getElementById('map'),
-        mapOptions);
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    var arrow = { path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW };
     
     var flightPlanCoordinates = [
     	new google.maps.LatLng(37.772323, -122.214897),
@@ -15,6 +16,10 @@ function initialize() {
   	];
   	var flightPath = new google.maps.Polyline({
     	path: flightPlanCoordinates,
+    	icons: [{
+      		icon: arrow,
+      		offset: '100%'
+    	}],
     	geodesic: true,
     	strokeColor: '#FF0000',
     	strokeOpacity: 1.0,
