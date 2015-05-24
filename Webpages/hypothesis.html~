@@ -38,6 +38,12 @@
 </div>
 
 <div class="questionBlock">
+<h3><q>What Australian city has the most number of international travellers visiting?</q></h3>
+<div class="answerText"><p>Testing</p></div>
+<div class="chart" id="container10"></div >
+</div>
+
+<div class="questionBlock">
 <h3><q>How has the airline market share changed for the major airline companies?</q></h3>
 <div class="answerText"><p>As expected, Qantas, being Australia’s biggest and longest running airline service is the most used airline to travel to and from Australia. In September 2003, Qantas had a 52.5% market share of the top 8 airlines, but in 2014, it reduced to 27%. This is primarily due to the increase of Virgin Australia and Jetstar, and their popular ‘super cheap’ airline fares.</p></div>
 <div class="chart" id="container2"></div><div class="chart" id="container3"></div>
