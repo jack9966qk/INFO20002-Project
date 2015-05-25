@@ -11,7 +11,7 @@ def value_of(csvDictIterator, header, bin_size = 0):
         value = csvDictIterator["Month"].split("-")[0]
     elif header == "Year":
         value = "20" + csvDictIterator["Month"].split("-")[-1]
-    elif header in ["MaxSeats", "AllFlights", "Stops"]:
+    elif header in ["MaxSeats", "AllFlights"]:
         num = int( csvDictIterator[header].replace(" ", "") ) #remove whitespaces
         if bin_size == 0:
             value = num
