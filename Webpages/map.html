@@ -28,38 +28,40 @@
 <h1>Map</h1>
 <h2>See how the flights were going</h2>
 
-<select>
-  <option value="2006">2006</option>
-  <option value="2007">2007</option>
-  <option value="2008">2008</option>
-  <option value="2009">2009</option>
-  <option value="2010">2010</option>
-  <option value="2011">2011</option>
-  <option value="2012">2012</option>
-  <option value="2013">2013</option>
-  <option value="2013">2014</option>
+<div class="options">
+<select id="yearSelect">
+  <option name="year" value="2006" selected="selected">2006</option>
+  <option name="year" value="2007">2007</option>
+  <option name="year" value="2008">2008</option>
+  <option name="year" value="2009">2009</option>
+  <option name="year" value="2010">2010</option>
+  <option name="year" value="2011">2011</option>
+  <option name="year" value="2012">2012</option>
+  <option name="year" value="2013">2013</option>
+  <option name="year" value="2013">2014</option>
 </select>
 
-<select>
-  <option value="Jan">Jan</option>
-  <option value="Feb">Feb</option>
-  <option value="Mar">Mar</option>
-  <option value="Apr">Apr</option>
-  <option value="May">May</option>
-  <option value="Jun">Jun</option>
-  <option value="Jul">Jul</option>
-  <option value="Aug">Aug</option>
-  <option value="Seo">Sep</option>
-  <option value="Oct">Oct</option>
-  <option value="Nov">Nov</option>
-  <option value="Dec">Dec</option>
+<select id="monthSelect">
+  <option name="month" value="Jan" selected="selected">Jan</option>
+  <option name="month" value="Feb">Feb</option>
+  <option name="month" value="Mar">Mar</option>
+  <option name="month" value="Apr">Apr</option>
+  <option name="month" value="May">May</option>
+  <option name="month" value="Jun">Jun</option>
+  <option name="month" value="Jul">Jul</option>
+  <option name="month" value="Aug">Aug</option>
+  <option name="month" value="Seo">Sep</option>
+  <option name="month" value="Oct">Oct</option>
+  <option name="month" value="Nov">Nov</option>
+  <option name="month" value="Dec">Dec</option>
 </select>
 
 <form>
     <input type="radio" name="IO" value="I">InBound
     <input type="radio" name="IO" value="O">OutBound
-    <input type="radio" name="IO" value="both" checked="checked">Both
+    <input type="radio" name="IO" value="Both" checked="checked">Both
 </form>
+</div>
 
 <div id="map"></div>
 

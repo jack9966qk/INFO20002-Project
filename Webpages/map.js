@@ -1,20 +1,27 @@
-function initialize() {
-    var mapOptions = {
-        center: { lat: 15.562480, lng: -173.057885},
-        zoom: 3
-    };
-    
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-    var arrow = {
-        path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-        strokeOpacity: 1.0,
-    };
+var year = "2006";
+var month = "Jan";
+var IO = "Both";
 
 
-    $.get("map.py", function(data, status) {
+var map, arrow, paths = [];
+
+function updateMap() {
+    // clear all existing routes
+    for (var i in paths) {
+        paths[i].setMap(null);
+    }
+    paths = [];
+
+    // add new routes
+    query = "map.py?";
+    query += "year=" + year;
+    query += "&month=" + month;
+    query += "&IO=" + IO;
+
+    $.get(query, function(data, status) {
         var coords = [];
         for (var i in data) {
-            var IO = data[i][0][0];
+            var routeIO = data[i][0][0];
             route = data[i][0][1];
             var num = data[i][1];
 
@@ -33,14 +40,52 @@ function initialize() {
                 strokeOpacity: 1.0,
                 strokeWeight: num/35
             });
-            if (IO == "O") {
+            if (routeIO == "O") {
                flightPath.strokeColor = 'rgba(28,143,245,0.8)';
             }
+            paths.push(flightPath);
             flightPath.setMap(map);
         }
         
     });
 
+
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+$(function () {
+    var mapOptions = {
+        center: { lat: 15.562480, lng: -173.057885},
+        zoom: 3
+    };
+
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    arrow = {
+        path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+        strokeOpacity: 1.0,
+    };
+
+    updateMap(map);
+
+    $("#yearSelect").change( function() { 
+        year = $('option[name=year]:selected').val();
+        updateMap(map);
+    });
+
+    $('#monthSelect').change( function() { 
+        month = $('option[name=month]:selected').val();
+        updateMap(map);
+    });
+
+
+    $('input[name=IO]').change( function() {
+        IO = $('input[name=IO]:checked').val();
+        updateMap(map);
+    });
+
+
+    $('input[name=IO]:checked').on('input', function() { 
+        IO = $(this).val();
+        updateMap(map);
+    });
+
+})
