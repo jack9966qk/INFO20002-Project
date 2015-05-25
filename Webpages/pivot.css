@@ -103,23 +103,6 @@ button:disabled {
     display: inline-table;
 }
 
-input[type=radio] {
-    margin-left: 10px;
-    width: 25px;
-    height: 25px;
-}
-
-form {
-    font-weight: lighter;
-    font-size: 110%;
-    margin-top: 15px;
-}
-
-input[type=checkbox] {
-    width: 25px;
-    height: 25px;
-}
-
 #rangeDisplay {
     font-size: 100%;
     color: black;
