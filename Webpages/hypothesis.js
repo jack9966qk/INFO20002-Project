@@ -50,11 +50,11 @@ $(function () {
 
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
-			type: "pie"
+			type: "area"
     	},
 
         title: {
-            text: 'Airline Market Share - September 2003'
+            text: 'Airline Market Share'
         },
 		
 		
@@ -63,55 +63,20 @@ $(function () {
         },
 		
 		plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-				dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-				}
-			}
-		},
+            area: {
+                stacking: 'percent',
+                lineColor: '#ffffff',
+                lineWidth: 1,
+                marker: {
+                    lineWidth: 1,
+                    lineColor: '#ffffff'
+                }
+            }
+        },
 		
         data: {
             googleSpreadsheetKey: '1tqsRCX55dmxXTiNdtMJ95vplWac7AZ-on2bO70RDLVE', //Rahul's Key
 			googleSpreadsheetWorksheet: 1
-        }
-
-    });
-	
-	$('#container3').highcharts({
-        credit: {
-            enabled: false
-        },
-
-    	chart: {
-    		backgroundColor: "rgba(255, 255, 255, 0.3)",
-			type: "pie"
-    	},
-
-        title: {
-            text: 'Airline Market Share - September 2014'
-        },
-		
-		subtitle: {
-            text: 'Source: bitre.gov.au'
-        },
-		
-		plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-				dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-				}
-			}
-		},
-
-        data: {
-            googleSpreadsheetKey: '1tqsRCX55dmxXTiNdtMJ95vplWac7AZ-on2bO70RDLVE', //Rahul's Key
-			googleSpreadsheetWorksheet: 2
         }
 
     });
