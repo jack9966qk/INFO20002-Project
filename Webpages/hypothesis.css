@@ -1,7 +1,7 @@
 div.questionBlock {
 	width: 100%;
 	margin: 0px;
-	padding: 30px 0px 30px 30px;
+	padding: 30px 0px 30px 0px;
 	text-align: center;
 }
 
@@ -28,6 +28,7 @@ div.questionBlock > div {
 
 .chart {
 	width: 85%;
+	height: 600px;
 	max-width: 1500px;
 	padding-top: 25px;
 	margin-left: auto;
