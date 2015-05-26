@@ -10,23 +10,26 @@ Dataset is collected from [insert here] as excel files, containing data of fligh
 
 ##Todo
 - [x] Collect Data
-- [ ] Data Preprocessing
+- [x] Data Preprocessing
 	- [x] Convert to CSV for Python
 	- [x] Import to Google Spreadsheets
-- [ ] Analysis of Data
-- [ ] Webpage Presentation
-	- [ ] Index Page
-		- [ ] HTML
-		- [ ] CSS
-		- [ ] JavaScript
-	- [ ] Pivot Table Page
-		- [ ] HTML
-		- [ ] CSS
-		- [ ] JavaScript
-	- [ ] Hypothesis and Analysis Page
-		- [ ] HTML
-		- [ ] CSS
-		- [ ] JavaScript
+- [x] Analysis of Data
+- [x] Webpage Presentation
+	- [x] Index Page
+		- [x] HTML
+		- [x] CSS
+	- [x] Pivot Table Page
+		- [x] HTML
+		- [x] CSS
+		- [x] JavaScript
+	- [x] Map Page
+		- [x] HTML
+		- [x] CSS
+		- [x] JavaScript
+	- [x] Hypothesis and Analysis Page
+		- [x] HTML
+		- [x] CSS
+		- [x] JavaScript
 
 ##Part 1 - Pivot Table
 
