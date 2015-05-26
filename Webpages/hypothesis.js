@@ -11,7 +11,7 @@ $(function () {
     	},
 
         title: {
-            text: 'Cities with the most flight traffic'
+            text: 'Australian Cities With The Most Flight Traffic'
         },
 		
 		subtitle: {
@@ -19,7 +19,9 @@ $(function () {
         },
 		
 		xAxis: {
-            crosshair: true,
+            title: {
+                text: 'City'
+            }
         },
 		
 		yAxis: {
@@ -156,7 +158,7 @@ $(function () {
     	},
 
         title: {
-            text: 'Highcharts data from Google Spreadsheets'
+            text: 'Highcharts Data From Google Spreadsheets'
         },
 		
 		subtitle: {
@@ -212,7 +214,7 @@ $(function () {
     	},
 		colors: ['#87D37C'],
         title: {
-            text: 'Value of the Australian Dollar'
+            text: 'Value of The Australian Dollar'
         },
 		
 		subtitle: {
@@ -250,7 +252,7 @@ $(function () {
 			type: "bar"
     	},
         title: {
-            text: 'Most popular routes taken to and from Australia'
+            text: 'Most Popular Routes Taken To and From Australia'
         },
 		
 		subtitle: {
@@ -258,7 +260,9 @@ $(function () {
         },
 		colors: ['#AEA8D3'],
 		xAxis: {
-            crosshair: true
+            title: {
+                text: 'Routes'
+            }
         },
 		
 	    yAxis: {
