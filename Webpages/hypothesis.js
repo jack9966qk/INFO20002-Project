@@ -19,7 +19,7 @@ $(function () {
         },
 		
 		xAxis: {
-            crosshair: true
+            crosshair: true,
         },
 		
 		yAxis: {
@@ -175,6 +175,12 @@ $(function () {
 		
 		subtitle: {
             text: 'Source: bitre.gov.au'
+        },
+		
+		yAxis: {
+            title: {
+				text: 'US Dollar'
+			}
         },
 
         data: {

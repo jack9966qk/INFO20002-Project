@@ -35,3 +35,7 @@ div.questionBlock > div {
 	margin-right: auto;
 	display: inline-block;
 }
+#container6, #container7, #container1, #container8{
+	width: 45%;
+	min-width: 400px;
+}
