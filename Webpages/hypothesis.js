@@ -274,11 +274,14 @@ $(function () {
     });
 
        $('#container9').highcharts({
-
+       	   		
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
 			type: "column"
     	},
+
+        colors: ['#FFD700'],
+
         title: {
             text: 'Top 10 countries travelled to from Australia'
         },
@@ -288,7 +291,9 @@ $(function () {
         },
 		
 		xAxis: {
-            crosshair: true
+            title: {
+                text: 'Countries'
+            }
         },
         
         yAxis: {
@@ -296,10 +301,13 @@ $(function () {
                 text: 'Number of Flights'
             }
         },
-
+        
+       
         data: {
             googleSpreadsheetKey: '1Mowpe6EIG78esqQcyyEscuSO5gP6yymjNMR-T9r9P9M', //Julian's Key
             googleSpreadsheetWorksheet: 1
+            
+        
         }
 
     });
@@ -310,6 +318,9 @@ $(function () {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
 			type: "column"
     	},
+
+        colors: ['#680000'],
+
         title: {
             text: 'Top cities in Australia being visited.'
         },
@@ -319,7 +330,9 @@ $(function () {
         },
 		
 		xAxis: {
-            crosshair: true
+            title: {
+                text: 'City'
+            }
         },
         
         yAxis: {
@@ -341,6 +354,9 @@ $(function () {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
 			type: "column"
     	},
+
+        colors: ['#CCCC52'],
+
         title: {
             text: 'Top 10 international cities visiting Australia'
         },
@@ -350,7 +366,9 @@ $(function () {
         },
 		
 		xAxis: {
-            crosshair: true
+            title: {
+                text: 'City'
+            }
         },
         
         yAxis: {
@@ -367,11 +385,15 @@ $(function () {
     });
        
        $('#container12').highcharts({
-
+       
+       		  
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
 			type: "column"
     	},
+
+        colors: ['#0000CC'],
+
         title: {
             text: 'Top cities in Australia departing from'
         },
@@ -381,7 +403,9 @@ $(function () {
         },
 		
 		xAxis: {
-            crosshair: true
+            title: {
+                text: 'City'
+            }
         },
         
         yAxis: {
