@@ -28,6 +28,18 @@ $(function () {
             }
         },
 		
+		legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+		
 	    tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
@@ -60,6 +72,17 @@ $(function () {
 		
 		subtitle: {
             text: 'Source: bitre.gov.au'
+        },
+		
+		yAxis: {
+            title: {
+				text: 'Percentage'
+			}
+        },
+		
+		tooltip: {
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}%</b> ({point.y:,.0f})<br/>',
+            shared: true
         },
 		
 		plotOptions: {
@@ -103,6 +126,18 @@ $(function () {
 		
 		subtitle: {
             text: 'Source: bitre.gov.au'
+        },
+		
+		legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
         },
 
         data: {
@@ -150,6 +185,12 @@ $(function () {
 		
 		subtitle: {
             text: 'Source: bitre.gov.au'
+        },
+		
+		yAxis: {
+            title: {
+				text: 'Number of Travellers'
+			}
         },
 
         data: {
@@ -206,7 +247,7 @@ $(function () {
         },
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)",
-			type: "column"
+			type: "bar"
     	},
         title: {
             text: 'Most popular routes taken to and from Australia'
@@ -215,11 +256,17 @@ $(function () {
 		subtitle: {
             text: 'Source: bitre.gov.au'
         },
-		
+		colors: ['#AEA8D3'],
 		xAxis: {
             crosshair: true
         },
-
+		
+	    yAxis: {
+            title: {
+				text: 'Number of Flights'
+			}
+        },
+		
         data: {
             googleSpreadsheetKey: '1DkgzFtue_gOly52Qxr9J3OVsjTJLy_Bsh5R8lRL1Uv8', //Rahul's Key
         }
