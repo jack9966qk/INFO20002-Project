@@ -15,7 +15,7 @@ def print_filter_options(csvFile, header):
 
     print "Content-Type: text/json"
     print  
-    if header in ["AllFlights", "MaxSeats", "Stops"]:
+    if header in ["AllFlights", "MaxSeats"]:
         print json.dumps(boundary_values(csvFile, header))
     else:
         print json.dumps(unique_values(csvFile, header))

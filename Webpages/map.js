@@ -83,9 +83,4 @@ $(function () {
     });
 
 
-    $('input[name=IO]:checked').on('input', function() { 
-        IO = $(this).val();
-        updateMap(map);
-    });
-
 })

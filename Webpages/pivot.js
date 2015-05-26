@@ -46,7 +46,6 @@ function generate_options(header, position) {
             position.append(div);
         }
     })
-    $("#filterOptions").attr("hidden", false);
 }
 
 
@@ -164,13 +163,22 @@ $(function () {
         drop: function( event, ui ) {
             $(this).addClass("dropped");
             filter = ui.draggable.attr("id");
-            generate_options(ui.draggable.attr("id"), $("#selector"));
+            update_button();
+            $("#filterOptions").attr("hidden", false);
+            generate_options(ui.draggable.attr("id"), $("#selector"));            
         },
         out: function( event, ui ) {
             $("#selector").empty();
+            filter = undefined;
             $(this).removeClass("dropped");
+            update_button();
+            $("#filterOptions").attr("hidden", true);
         }
     });
+    
+    $('input[name=aggregate]').change( function() {
+        update_button();
+    });                          
 
 
     $("button").click(function(){
@@ -189,7 +197,7 @@ $(function () {
             } else {
                 var options = [];
                 
-                $('.filterOption:checked').each(function() {
+                $('.filOption:checked').each(function() {
                     options.push($(this).attr("id"));
                 });
                 var len = options.length;
@@ -203,6 +211,11 @@ $(function () {
         
 
         $.get(query, function(data, status) {
+            if (data.series[0].data.length == 0) {
+                $('#generate').text("No data found, check filter");
+                $("button").attr("disabled", true);
+                return;
+            }        
             $("#generate").text("Here is:");
             $("button").attr("disabled", true);
         

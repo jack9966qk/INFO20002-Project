@@ -133,7 +133,7 @@ def parse_data(csvFile, rowType, colType, valueType, filterType = "", filterOpti
         colKey = value_of(line, colType, col_binsize)
         value = value_of(line, valueType)
         
-        if filterType in ["MaxSeats", "AllFlights", "Stops"]:
+        if filterType in ["MaxSeats", "AllFlights"]:
             # number range as filter
             toFilter = value_of(line, filterType)
             if (toFilter > int(filterOptions[0])) and (toFilter < int(filterOptions[1])):
