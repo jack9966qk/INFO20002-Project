@@ -163,12 +163,13 @@ $(function () {
         credit: {
             enabled: false
         },
-
-
+		rangeSelector : {
+                selected : 1
+        },
     	chart: {
     		backgroundColor: "rgba(255, 255, 255, 0.3)"
     	},
-		colors: ['#70ff2d'],
+		colors: ['#87D37C'],
         title: {
             text: 'Value of the Australian Dollar'
         },
@@ -180,7 +181,16 @@ $(function () {
 		yAxis: {
             title: {
 				text: 'US Dollar'
-			}
+			},
+			plotLines : [{
+                    value : 0.761,
+                    color : '#f45b5b',
+                    dashStyle : 'shortdash',
+                    width : 2,
+                    label : {
+                        text : 'Average Rate'
+                    }
+            }]
         },
 
         data: {
