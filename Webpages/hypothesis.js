@@ -283,7 +283,7 @@ $(function () {
         colors: ['#FFD700'],
 
         title: {
-            text: 'Top 10 countries travelled to from Australia'
+            text: 'Top 10 Countries Travelled To From Australia. (September 2003 - February 2015)'
         },
 		
 		subtitle: {
@@ -322,7 +322,7 @@ $(function () {
         colors: ['#680000'],
 
         title: {
-            text: 'Top cities in Australia being visited.'
+            text: 'Top Cities In Australia Being Visited. (September 2003 - February 2015)'
         },
 		
 		subtitle: {
@@ -358,7 +358,7 @@ $(function () {
         colors: ['#CCCC52'],
 
         title: {
-            text: 'Top 10 international cities visiting Australia'
+            text: 'Top 10 International Cities Visiting Australia. (September 2003 - February 2015)'
         },
 		
 		subtitle: {
@@ -395,7 +395,7 @@ $(function () {
         colors: ['#0000CC'],
 
         title: {
-            text: 'Top cities in Australia departing from'
+            text: 'Top Cities In Australia Departing From. (September 2003 - February 2015)'
         },
 		
 		subtitle: {
