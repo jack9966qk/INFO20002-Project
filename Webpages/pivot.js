@@ -84,21 +84,22 @@ $(function () {
     $("#row.droppable").droppable({
         activate: function( event, ui ) {
             $(this).addClass("dragging");
-            $(this).text("Drag To Here");
+            $(this).text("Drop Here");
         },
         deactivate: function( event, ui ) {
             $(this).removeClass("dragging");
-            $(this).text("Row Header");
+            $(this).text("Rows");
         },
         hoverclass: "hovered",
         drop: function( event, ui ) {
-            ui.draggable.data('dropped', true);
             $(this).addClass("dropped");
             row = ui.draggable.attr("id");
+            $(this).droppable('option', 'accept', ui.draggable);
             update_button();
         },
         out: function( event, ui ) {
             $(this).removeClass("dropped");
+            $(this).droppable('option', 'accept', '*');
             row = undefined;
             update_button();
         }
@@ -107,19 +108,21 @@ $(function () {
     $("#col.droppable").droppable({
         activate: function( event, ui ) {
             $(this).addClass("dragging");
-            $(this).text("Drag To Here");
+            $(this).text("Drop Here");
         },
         deactivate: function( event, ui ) {
             $(this).removeClass("dragging");
-            $(this).text("Column Header");
+            $(this).text("Columns");
         },
         hoverclass: "hovered",
         drop: function( event, ui ) {
+            $(this).droppable('option', 'accept', ui.draggable);
             $(this).addClass("dropped");
             col = ui.draggable.attr("id");
             update_button();
         },
         out: function( event, ui ) {
+            $(this).droppable('option', 'accept', '*');
             $(this).removeClass("dropped");
             col = undefined;
             update_button();
@@ -130,7 +133,7 @@ $(function () {
         accept: "#MaxSeats, #AllFlights",
         activate: function( event, ui ) {
             $(this).addClass("dragging");
-            $(this).text("Drag To Here");
+            $(this).text("Drop Here");
         },
         deactivate: function( event, ui ) {
             $(this).removeClass("dragging");
@@ -138,11 +141,13 @@ $(function () {
         },
         hoverclass: "hovered",
         drop: function( event, ui ) {
+            $(this).droppable('option', 'accept', ui.draggable);
             $(this).addClass("dropped");
             val = ui.draggable.attr("id");
             update_button();
         },
         out: function( event, ui ) {
+            $(this).droppable('option', 'accept', "#MaxSeats, #AllFlights");
             $(this).removeClass("dropped");
             val = undefined;
             update_button();
@@ -153,7 +158,7 @@ $(function () {
     $("#filter.droppable").droppable({
         activate: function( event, ui ) {
             $(this).addClass("dragging");
-            $(this).text("Drag To Here");
+            $(this).text("Drop Here");
         },
         deactivate: function( event, ui ) {
             $(this).removeClass("dragging");
@@ -161,6 +166,7 @@ $(function () {
         },
         hoverclass: "hovered",
         drop: function( event, ui ) {
+            $(this).droppable('option', 'accept', ui.draggable);
             $(this).addClass("dropped");
             filter = ui.draggable.attr("id");
             update_button();
@@ -168,6 +174,7 @@ $(function () {
             generate_options(ui.draggable.attr("id"), $("#selector"));            
         },
         out: function( event, ui ) {
+            $(this).droppable('option', 'accept', '*');
             $("#selector").empty();
             filter = undefined;
             $(this).removeClass("dropped");

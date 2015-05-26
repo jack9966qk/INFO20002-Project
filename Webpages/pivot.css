@@ -61,11 +61,6 @@ div {
     margin: 30px auto 0px auto;
 }
 
-#rangeDisplay {
-
-}
-
-
 .dragging {
     background-color: #367F27;
 }
@@ -73,7 +68,6 @@ div {
 .dropped {
     background-color: #949FFF;
 }
-
 
 #aggregateOptions, #filterOptions {
     clear: both;
@@ -105,10 +99,10 @@ button:disabled {
 
 #rangeDisplay {
     font-size: 100%;
+    font-weight: lighter;
     color: black;
     text-align: center;
 }
-
 
 #rangeSlider {
     margin: auto;
