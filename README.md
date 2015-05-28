@@ -13,7 +13,9 @@ The main dataset we used for this project is about International airline flights
 
 We also used some smaller datasets such as the changes of airfares and the number of departures and arrivals in Australia to assist us in creating better insights for our main dataset and hypothesis in general. 
 
-All the datasets above have been collected from BITRE (Bureau of Infrastructure, Transport and Regional Economics). It initially was an .xls file which we converted to a csv format.Additionally, for locating airports by their abbreviations, a csv file from OpenFlights has been used.
+All the datasets above have been collected from BITRE (Bureau of Infrastructure, Transport and Regional Economics). It initially was an .xls file which we converted to a csv format.
+
+Additionally, for locating airports by their abbreviations, a csv file from OpenFlights has been used.
 
 
 ## Data Preprocessing
@@ -64,7 +66,11 @@ Details: [Hypothesis](Hypothesis.md)
 
 ### Rahul
 
-- Fill this!
+- Processed data for analysis
+- Created hypothesis questions and sub questions
+- Highcharts creation for questions
+- HTML: hypothesis.html
+- Javascript: hypothesis.js
 
 ### Julian 
 
