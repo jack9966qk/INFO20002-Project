@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Flights and Australia - Project Phase 3 by jack9966qk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Flights and Australia - Project Phase 3</h1>
+      <h2 class="project-tagline">Project for INFO20002 (Foundations of Informatics) in the University of Melbourne</h2>
+      <a href="https://github.com/jack9966qk/Informatics" class="btn">View on GitHub</a>
+      <a href="https://github.com/jack9966qk/Informatics/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/jack9966qk/Informatics/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="flights-and-australia" class="anchor" href="#flights-and-australia" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flights and Australia</h1>
+
+<p>This is the group project for INFO20002 (Foundations of Informatics) subject.</p>
+
+<p>Group Members: Rahul Singh, Jack Qian and Julian Chua</p>
+
+<p>GitHub Page: <a href="https://github.com/jack9966qk/Informatics">Here</a></p>
+
+<h2>
+<a id="sources-and-dataset" class="anchor" href="#sources-and-dataset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sources and Dataset</h2>
+
+<p>The main dataset we used for this project is about International airline flights that enter or exit Australia during the period of September 2003 and February 2015.</p>
+
+<p>We also used some smaller datasets such as the changes of airfares and the number of departures and arrivals in Australia to assist us in creating better insights for our main dataset and hypothesis in general. </p>
+
+<p>All the datasets above have been collected from BITRE (Bureau of Infrastructure, Transport and Regional Economics). It initially was an .xls file which we converted to a csv format.</p>
+
+<p>Additionally, for locating airports by their abbreviations, a csv file from OpenFlights has been used.</p>
+
+<h2>
+<a id="data-preprocessing" class="anchor" href="#data-preprocessing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Preprocessing</h2>
+
+<p>As most data is originally is .xls format, the files are converted to csv format with the export option in Mircosoft Excel. Exported csv files are imported to Google Spreadsheets and read by Python scripts.</p>
+
+<h2>
+<a id="main-components" class="anchor" href="#main-components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main Components</h2>
+
+<h3>
+<a id="pivot-table" class="anchor" href="#pivot-table" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pivot Table</h3>
+
+<p>User customisable pivot table generator. Types of data as row headers, column headers, value, and filter can be easily selected by a drag&amp;drop interface. The webpage will also provide appropriate filter options depdending on the input.</p>
+
+<ul>
+<li>Python used as CGI (pivot.py, pivotHeader.py), produce JSON.</li>
+<li>HighCharts is used for pivot table presentation and interaction.</li>
+<li>jQuery UI used to implement the drag&amp;drop interface, and to implement AJAX technique.</li>
+<li>An additional Javascript framework is used to support touch screen devices. <a href="https://github.com/furf/jquery-ui-touch-punch">GitHub Page</a>
+</li>
+</ul>
+
+<h3>
+<a id="flight-map" class="anchor" href="#flight-map" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flight Map</h3>
+
+<p>Interactive map generating visualisation of routes of flights in a certain month. The user can choose the month to display, as well as whether to display inbound/outbound flights.</p>
+
+<ul>
+<li>Python used as CGI (map.py), produces JSON.</li>
+<li>jQuery used for interactivity and AJAX technique.</li>
+<li>Google Maps API v3 is used for map presentation and route visualisation.</li>
+</ul>
+
+<h3>
+<a id="hypothesis-and-analysis" class="anchor" href="#hypothesis-and-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hypothesis and Analysis</h3>
+
+<p>We set several questions...</p>
+
+<p>Details: <a href="Hypothesis.md">Hypothesis</a></p>
+
+<ul>
+<li>Google Spreadsheet is used for data analysing.</li>
+<li>HighCharts is used for visualisation, linked directly to Google Spreadsheet worksheets.</li>
+</ul>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<h3>
+<a id="all" class="anchor" href="#all" aria-hidden="true"><span class="octicon octicon-link"></span></a>All</h3>
+
+<ul>
+<li>Discussed topic and dataset to choose, hypothesis questions, and overall plan.</li>
+</ul>
+
+<h3>
+<a id="jack" class="anchor" href="#jack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jack</h3>
+
+<ul>
+<li>HTML: index.html, pivot.html, map.html, skeleton for hypothesis.html</li>
+<li>CSS: Style and layout for all webpages</li>
+<li>Javascipt: pivot.js, pivotHeader.js, map.js, skeleton for hypothesis.js</li>
+<li>User Interacton</li>
+</ul>
+
+<h3>
+<a id="rahul" class="anchor" href="#rahul" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rahul</h3>
+
+<ul>
+<li>Fill this!</li>
+</ul>
+
+<h3>
+<a id="julian" class="anchor" href="#julian" aria-hidden="true"><span class="octicon octicon-link"></span></a>Julian</h3>
+
+<ul>
+<li>Fill this!</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/jack9966qk/Informatics">Flights and Australia - Project Phase 3</a> is maintained by <a href="https://github.com/jack9966qk">jack9966qk</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
