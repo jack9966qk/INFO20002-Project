@@ -4,6 +4,8 @@ This is the group project for INFO20002 (Foundations of Informatics) subject.
 
 Group Members: Rahul Singh, Jack Qian and Julian Chua
 
+GitHub Page: [Here](https://github.com/jack9966qk/Informatics)
+
 
 ## Sources and Dataset
 
