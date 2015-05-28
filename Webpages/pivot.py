@@ -17,10 +17,10 @@ def value_of(csvDict, header, bin_size = 0):
 
     if header == "Month":
         # extract month from date
-        value = csvDict["Month"].split("-")[0]
+        value = csvDict["Month"].split("-")[-1]
     elif header == "Year":
         # extract year from date
-        value = "20" + csvDict["Month"].split("-")[-1]
+        value = str( 2000 + int(csvDict["Month"].split("-")[0]) )
     elif header in ["MaxSeats", "AllFlights"]:
         # numerical values
         num = int( csvDict[header].replace(" ", "") ) #remove whitespaces
@@ -115,7 +115,7 @@ def parse_data(csvFile, rowType, colType, valueType, filterType = "", filterOpti
     returns (sorted row headers, sorted column headers, 2d dictionary data)
     each cell in the 2d-dictionary is a list of values ( [] for no values )
     """
-    
+
     row_binsize = col_binsize = 1
     
     # get the headers
@@ -159,7 +159,6 @@ def parse_data(csvFile, rowType, colType, valueType, filterType = "", filterOpti
         rowKey = value_of(line, rowType, row_binsize)
         colKey = value_of(line, colType, col_binsize)
         value = value_of(line, valueType)
-        
         if filterType in ["MaxSeats", "AllFlights"]:
             # number range as filter
             toFilter = value_of(line, filterType)
@@ -187,10 +186,9 @@ def generate_series(rows, cols, data, aggOption):
     returns the data array for Highcharts
     """
     series = []
-    
-    for i in range(len(rows)):
-        for j in range(len(cols)):
-            l = data[rows[i]][cols[j]]
+    for i in range(len(cols)):
+        for j in range(len(rows)):
+            l = data[rows[j]][cols[i]];
             # treat [] as empty, if not, aggregate with option provided
             if len(l) != 0:
                 if aggOption == "count":
@@ -227,18 +225,18 @@ if __name__ == "__main__":
             filOptions = form.getlist("opt")
         else:
             filOptions = []
-        rows, cols, data = parse_data("Data.csv", row, col, val, fil, filOptions)
+        rows, cols, data = parse_data("../RawData/Data.csv", row, col, val, fil, filOptions)
     else:
         # no filter
-        rows, cols, data = parse_data("Data.csv", row, col, val)
+        rows, cols, data = parse_data("../RawData/Data.csv", row, col, val)
 
 
     # generate Highcharts options 
     options = { "chart": {"type": "heatmap",
                       "height": 250*log(len(rows))}, #dynamic height respect to number of rows
             "title": {"text": row + " vs. " + col},
-            "xAxis": {"categories": rows},
-            "yAxis": {"categories": cols}
+            "xAxis": {"categories": cols},
+            "yAxis": {"categories": rows}
             }
 
 

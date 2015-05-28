@@ -23,6 +23,8 @@ def print_filter_options(csvFile, header):
         print json.dumps(unique_values(csvFile, header))
 
 
-form = FieldStorage()
-header = form["header"].value
-print_filter_options("Data.csv", header)
+if __name__ == "__main__":
+
+    form = FieldStorage()
+    header = form["header"].value
+    print_filter_options("../RawData/Data.csv", header)

@@ -38,7 +38,7 @@ def generate_routes(csvFile, locDict, year, month, io = "Both"):
     routeDict = defaultdict(int)
 
     for row in rows:
-        if ("20" + row["Month"].split("-")[-1]) == year and row["Month"].split("-")[0] == month:
+        if ( str(2000 + int(row["Month"].split("-")[0]) ) ) == year and row["Month"].split("-")[-1] == month:
             # in the required time range
             if io == "Both" or row["In/Out"] == io:
                 # IO type matches requirement
@@ -62,8 +62,8 @@ if __name__ == "__main__":
     month = form["month"].value
     io = form["IO"].value
 
-    d = get_airport_dict("airports.csv")
-    r = generate_routes("Data.csv", d, year, month, io)
+    d = get_airport_dict("../RawData/airports.csv")
+    r = generate_routes("../RawData/Data.csv", d, year, month, io)
 
     print "Content-Type: text/json"
     print  

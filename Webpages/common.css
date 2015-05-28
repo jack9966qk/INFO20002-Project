@@ -45,14 +45,20 @@ h3 {
 	font-size: 200%;
 }
 
-h1.title {
+p {
+	margin-bottom: 10px;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 110%;
+}
+
+.title {
 	font-family: 'Quantico', sans-serif;
 	text-align: center;
 	font-size: 300%;
 	margin-bottom: 10px;
 }
 
-h2.subtitle {
+.subtitle {
 	font-family: 'Quantico', sans-serif;
 	font-weight: 700;
 	text-align: center;
@@ -60,7 +66,7 @@ h2.subtitle {
 	margin-bottom: 10px;
 }
 
-div.index-text {
+.index-text {
 	max-width: 750px;
 	width: 80%;
     margin-left: auto;
@@ -72,12 +78,6 @@ div.index-text {
 div.button {
 	text-align: center;
 	margin-bottom: 40px;
-}
-
-p {
-	margin-bottom: 10px;
-	font-family: "Source Sans Pro", sans-serif;
-	font-size: 1.1em;
 }
 
 a.button, button {
@@ -102,7 +102,8 @@ a.button:hover, button:hover {
 }
 
 a.button:active, button:active {
-	font-size: 140%;
+	background-color: #192A36;
+	border-color: #192A36;
 }
 
 a.button:link {
@@ -125,6 +126,11 @@ a.tabButton:hover {
 	color: white;
 	background-color: #000066;
 	border-color: #000066;
+}
+
+a.tabButton:active {
+	background-color: #192A36;
+	border-color: #192A36;
 }
 
 a.tabButton:link {
@@ -157,11 +163,11 @@ nav {
 
 div.footer {
 	text-align: center;
-	padding: 20px;
+	padding: 25px;
 	background-color: #AAAAAA;
 }
 
-div.footer p {
+div.footer > p {
 	font-family: 'Quantico', sans-serif;
 	font-weight: 400;
 }
@@ -172,14 +178,14 @@ input[type=radio] {
     height: 25px;
 }
 
+input[type=checkbox] {
+    width: 25px;
+    height: 25px;
+}
+
 form {
     font-weight: lighter;
     font-size: 110%;
     margin-top: 15px;
     margin-bottom: 10px;
-}
-
-input[type=checkbox] {
-    width: 25px;
-    height: 25px;
 }
