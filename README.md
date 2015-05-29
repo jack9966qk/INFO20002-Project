@@ -63,15 +63,23 @@ Details: [Hypothesis](Hypothesis.md)
 - CSS: Style and layout for all webpages
 - Javascipt: pivot.js, pivotHeader.js, map.js, skeleton for hypothesis.js
 - User Interacton
+- Integration of technologies (jQuery UI, Google Maps API, Highcharts)
+- Debugging, debugging and debugging
 
 ### Rahul
 
 - Processed data for analysis
 - Created hypothesis questions and sub questions
+- Data Analysis with Google Spreadsheet
 - Highcharts creation for questions
 - HTML: hypothesis.html
 - Javascript: hypothesis.js
 
 ### Julian 
 
-- Fill this!
+- Aquired dataset
+- Data Analysis with Google Spreadsheet
+- Highcharts creation for questions
+- Slideshow design
+- HTML: hypothesis.html
+- Javascript: hypothesis.js
